@@ -1385,7 +1385,7 @@ const Home = () => {
                   </h1>
                 </div>
               </div>
-              <div className="w-full mx-auto pb-10 overflow-hidden">
+              <div className="w-full mx-auto pb-10">
                 <div className="insightsSlider opacity-0 translate-x-[100%] mt-20 ">
                   <Slider {...settings2}>
                     {data2.map((d, i) => (
