@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Footer from "../components/Footer/Footer";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
+// import SplashCursor from "../Reactbits/SplashCursor"
 
 const Home = () => {
   const marqueeRef = useRef(null);

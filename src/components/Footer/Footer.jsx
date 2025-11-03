@@ -1,8 +1,171 @@
 import React from "react";
 import LiquidChrome from "../../Reactbits/LiquidChrome";
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 const Footer = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Footer Part1
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".contactFooter", {
+      scrollTrigger: {
+        trigger: ".contactFooter",
+        start: "top 60%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 0.5,
+    });
+    tl.to(".h2Ani", {
+      scrollTrigger: {
+        trigger: ".h2Ani",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+      y: 0,
+      delay: 1,
+      // opacity: 1,
+      duration: 2,
+      stagger: {
+        each: 0.4,
+      },
+    });
+    tl.to(".h2Ani2", {
+      scrollTrigger: {
+        trigger: ".h2Ani2",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+      y: 0,
+      delay: 2,
+      // opacity: 1,
+      duration: 2,
+      stagger: {
+        each: 0.4,
+      },
+    });
+    tl.to(".getTouch", {
+      scrollTrigger: {
+        trigger: ".getTouch",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+
+      opacity: 1,
+      delay: 2,
+      duration: 0.5,
+    });
+  });
+
+  // Footer Part2
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".commitment", {
+      scrollTrigger: {
+        trigger: ".commitment",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 0.5,
+    });
+
+    tl.to(".disclaimer", {
+      scrollTrigger: {
+        trigger: ".disclaimer",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 0.5,
+    });
+
+    tl.to(".riskFactors", {
+      scrollTrigger: {
+        trigger: ".riskFactors",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 0.5,
+    });
+  });
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".headingBottomFooter", {
+      scrollTrigger: {
+        trigger: ".headingBottomFooter",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+      y: 0,
+      delay: 1,
+      // opacity: 1,
+      duration: 2,
+      stagger: {
+        each: 0.4,
+      },
+    });
+    tl.to(".paraHeadingFooter", {
+      scrollTrigger: {
+        trigger: ".paraHeadingFooter",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+      x: 0,
+      delay: 1,
+      // opacity: 1,
+      duration: 2,
+      stagger: {
+        each: 0.4,
+      },
+    });
+    tl.to(".paraBottomFooter", {
+      scrollTrigger: {
+        trigger: ".paraBottomFooter",
+        start: "top 70%",
+        end: "top 30%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+        scrub: true,
+      },
+      delay: 1,
+      opacity: 1,
+      duration: 2,
+      stagger: {
+        each: 0.4,
+      },
+    });
+  });
+
   return (
     <>
       <div className="w-full relative z-10  shadow-[0_4px_100px_rgba(255,255,255,0.4)]">
@@ -15,7 +178,7 @@ const Footer = () => {
           />
         </div>
         <div className="w-full pb-10 flex gap-4">
-          <div className="w-1/2 h-full  pl-30 pt-15">
+          <div className="contactFooter opacity-0 w-1/2 h-full  pl-30 pt-15">
             <img className="h-18" src="/images/logo.png" alt="" />
             <h2 className="font-medium text-xl my-4">Contact Us</h2>
             <p className="text-[15px] leading-[2] w-[90%]">
@@ -32,33 +195,121 @@ const Footer = () => {
             </p>
             <img className="h-18 mt-4" src="/images/groups/trust2.png" alt="" />
           </div>
-          <div className="w-1/2 h-full  pl-10 pt-18">
-            <h2 className="font-medium text-xl">Quick Links</h2>
-            <h4 className="text-[14px] my-4">Client login</h4>
-            <h4 className="text-[14px] mb-4">About Us</h4>
-            <h4 className="text-[14px] mb-4">Our Commitment</h4>
-            <h4 className="text-[14px] mb-4">Contact details</h4>
-            <h4 className="text-[14px] mb-4">Blogs</h4>
-            <h4 className="text-[14px] mb-4">MF Forms</h4>
-            <h4 className="text-[14px] mb-4">MF Tools</h4>
-            <h4 className="text-[14px] mb-4">Calculator</h4>
+          <div className="quickLinks w-1/2 h-full  pl-[5vw]  pt-18">
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h2 className=" h2Ani font-medium translate-y-[200%]  text-xl">
+                Quick Links
+              </h2>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  my-4">
+                Client login
+              </h4>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  mb-4">
+                About Us
+              </h4>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  mb-4">
+                Our Commitment
+              </h4>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  mb-4">
+                Contact details
+              </h4>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  mb-4">
+                Blogs
+              </h4>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  mb-4">
+                MF Forms
+              </h4>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  mb-4">
+                MF Tools
+              </h4>
+            </div>
+            <div className=" h-fit w-fit  overflow-hidden">
+              <h4 className=" h2Ani text-[16px] translate-y-[200%]  mb-4">
+                Calculator
+              </h4>
+            </div>
           </div>
-          <div className="w-1/2 h-full pt-18">
-            <h2 className="font-medium text-xl">Our Services</h2>
-            <h4 className="text-[14px] my-4">Mutual Funds</h4>
-            <h4 className="text-[14px] mb-4">Portfolio Management Services</h4>
-            <h4 className="text-[14px] mb-4">Alternative Investment Funds</h4>
-            <h4 className="text-[14px] mb-4">Stock Trading</h4>
-            <h4 className="text-[14px] mb-4">IPO and FPO Investment</h4>
-            <h4 className="text-[14px] mb-4">NPS</h4>
-            <h4 className="text-[14px] mb-4">Insurance</h4>
-            <h4 className="text-[14px] mb-4">Loan Products</h4>
-            <h4 className="text-[14px] mb-4">Retirement Saving</h4>
-            <h4 className="text-[14px] mb-4">Tax-Efficient Investment</h4>
-            <h4 className="text-[14px] mb-4">Estate Planning</h4>
-            <h4 className="text-[14px] mb-4">Auxiliary Offerings</h4>
+          <div className="ourServices w-1/2 h-full pt-18">
+            <div className=" w-fit h-fit overflow-hidden ">
+              <h2 className="h2Ani2 font-medium translate-y-[150%] text-xl">
+                Our Services
+              </h2>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] my-4">
+                Mutual Funds
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Portfolio Management Services
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Alternative Investment Funds
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Stock Trading
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                IPO and FPO Investment
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                NPS
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Insurance
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Loan Products
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[14px]  translate-y-[200%] mb-4">
+                Retirement Saving
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Tax-Efficient Investment
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Estate Planning
+              </h4>
+            </div>
+            <div className=" overflow-hidden w-fit h-fit">
+              <h4 className="h2Ani2 text-[16px] translate-y-[150%] mb-4">
+                Auxiliary Offerings
+              </h4>
+            </div>
           </div>
-          <div className="w-[100%] h-full  pt-18 pr-22">
+          <div className="getTouch opacity-0 w-full h-full  pt-18 pr-22">
             <h2 className="font-medium text-xl">Get in Touch</h2>
             <div className="flex gap-2 mt-4">
               <a
@@ -169,33 +420,38 @@ const Footer = () => {
         <div className="w-full px-22 pt-10">
           <div className="w-full pb-15 flex gap-4">
             <div className="w-1/2 h-full  px-4">
-              <h2 className="font-medium text-2xl">Our Commitment</h2>
-              <p className="text-[15px] w-[70%] mt-4">
-                We adhere strictly to all regulations and guidelines set forth
-                by SEBI, AMFI, and APMI to ensure the highest professionalism,
-                transparency, and investor protection standards. Mintbyte is
-                committed to maintaining the highest compliance and ethical
-                conduct levels in all our operations. We regularly update our
-                knowledge and practices to stay abreast of regulatory changes
-                and ensure that our clients receive the best possible service
-                within a framework of trust and integrity.
-              </p>
-              <h2 className="font-medium text-2xl mt-6">Risk Factors</h2>
-              <p className="text-[15px] w-[80%] mt-4">
-                Investments in Mutual Funds are subject to Market Risks. Read
-                all scheme related documents carefully before investing. Mutual
-                Fund Schemes do not assure or guarantee any returns. Past
-                performances of any Mutual Fund Scheme may or may not be
-                sustained in future. There is no guarantee that the investment
-                objective of any suggested scheme shall be achieved. All
-                existing and prospective investors are advised to check and
-                evaluate the Exit loads and other cost structure (TER)
-                applicable at the time of making the investment before
-                finalizing on any investment decision for Mutual Funds schemes.
-              </p>
+              <div className="commitment opacity-0">
+                <h2 className="font-medium text-2xl">Our Commitment</h2>
+                <p className="text-[15px] w-[70%] mt-4">
+                  We adhere strictly to all regulations and guidelines set forth
+                  by SEBI, AMFI, and APMI to ensure the highest professionalism,
+                  transparency, and investor protection standards. Mintbyte is
+                  committed to maintaining the highest compliance and ethical
+                  conduct levels in all our operations. We regularly update our
+                  knowledge and practices to stay abreast of regulatory changes
+                  and ensure that our clients receive the best possible service
+                  within a framework of trust and integrity.
+                </p>
+              </div>
+              <div className="riskFactors opacity-0">
+                <h2 className="font-medium text-2xl mt-6">Risk Factors</h2>
+                <p className="text-[15px] w-[80%] mt-4">
+                  Investments in Mutual Funds are subject to Market Risks. Read
+                  all scheme related documents carefully before investing.
+                  Mutual Fund Schemes do not assure or guarantee any returns.
+                  Past performances of any Mutual Fund Scheme may or may not be
+                  sustained in future. There is no guarantee that the investment
+                  objective of any suggested scheme shall be achieved. All
+                  existing and prospective investors are advised to check and
+                  evaluate the Exit loads and other cost structure (TER)
+                  applicable at the time of making the investment before
+                  finalizing on any investment decision for Mutual Funds
+                  schemes.
+                </p>
+              </div>
             </div>
-            <div className="w-1/2 h-full ">
-              <h2 className="font-medium text-2xl mt-6">Risk Factors</h2>
+            <div className="disclaimer w-1/2 h-full opacity-0">
+              <h2 className="font-medium text-2xl mt-6">Disclaimer</h2>
               <p className="text-[15px] w-[90%] mt-4">
                 The information provided herein is solely for informational
                 purposes. It should not be construed as investment advice, an
@@ -225,56 +481,86 @@ const Footer = () => {
           </div>
 
           <div className="w-full pl-4">
-            <h2 className="text-2xl font-medium ">
-              Additional Disclaimer for Stock Trading Services
-            </h2>
-            <p className="text-lg font-medium mt-4">Stock Trading Risk:</p>
-            <p className="text-[16px]">
+            <div className="overflow-hidden w-fit">
+              <h2 className="headingBottomFooter text-2xl translate-y-[100%] font-medium ">
+                Additional Disclaimer for Stock Trading Services
+              </h2>
+            </div>
+            <div className=" w-fit h-fit overflow-hidden">
+              <p className="paraHeadingFooter text-lg font-medium translate-x-[100%] mt-4">
+                Stock Trading Risk:
+              </p>
+            </div>
+            <p className="paraBottomFooter text-[16px] opacity-0">
               Stock trading involves inherent risks due to market volatility.
               The value of stocks can fluctuate significantly, and investors may
               experience losses, including the potential loss of their entire
               investment capital. Past performance is not indicative of future
               results.
             </p>
-            <p className="text-lg font-medium mt-4">Sub-Broker Relationship:</p>
-            <p className="text-[16px]">
+            <div className=" w-fit h-fit overflow-hidden">
+              <p className="paraHeadingFooter text-lg font-medium translate-x-[-100%] mt-4">
+                Sub-Broker Relationship:
+              </p>
+            </div>
+            <p className="paraBottomFooter text-[16px] opacity-0">
               Mintbyte acts as a sub-broker of the Main Broker for stock trading
               services. While we strive to provide efficient and reliable
               services, we are not responsible for the principal broker's
               actions or omissions.
             </p>
-            <p className="text-lg font-medium mt-4">Client Responsibility:</p>
-            <p className="text-[16px]">
+            <div className=" w-fit h-fit overflow-hidden">
+              <p className="paraHeadingFooter text-lg font-medium translate-x-[100%] mt-4">
+                Client Responsibility:
+              </p>
+            </div>
+            <p className="paraBottomFooter text-[16px] opacity-0">
               Clients are solely responsible for their investment decisions and
               should carefully consider their risk tolerance, financial
               situation, and investment objectives before engaging in stock
               trading. We strongly recommend seeking independent financial
               advice before making any investment decisions.
             </p>
-            <p className="text-lg font-medium mt-4">No Guarantees:</p>
-            <p className="text-[16px]">
+            <div className=" w-fit h-fit overflow-hidden">
+              <p className="paraHeadingFooter text-lg font-medium translate-x-[-100%] mt-4">
+                No Guarantees:
+              </p>
+            </div>
+            <p className="paraBottomFooter text-[16px] opacity-0">
               Mintbyte and the principal broker do not guarantee the accuracy,
               completeness, or timeliness of any market data, research, or
               recommendations provided, nor do we guarantee any specific
               investment outcomes or profits.
             </p>
-            <p className="text-lg font-medium mt-4">Regulatory Compliance:</p>
-            <p className="text-[16px]">
+            <div className=" w-fit h-fit overflow-hidden">
+              <p className="paraHeadingFooter text-lg font-medium translate-x-[100%] mt-4">
+                Regulatory Compliance:
+              </p>
+            </div>
+            <p className="paraBottomFooter text-[16px] opacity-0">
               Mintbyte and its principal broker adhere to all applicable
               regulations and guidelines set forth by the Securities and
               Exchange Board of India (SEBI) and other relevant authorities.
               However, clients should be aware that regulatory changes may
               impact their investments.
             </p>
-            <p className="text-lg font-medium mt-4">Limited Liability:</p>
-            <p className="text-[16px]">
+            <div className=" w-fit h-fit overflow-hidden">
+              <p className="paraHeadingFooter text-lg font-medium translate-x-[-100%] mt-4">
+                Limited Liability:
+              </p>
+            </div>
+            <p className="paraBottomFooter text-[16px] opacity-0">
               Mintbyte and the principal broker shall not be liable for any
               losses, damages, or expenses incurred by clients arising from
               using our stock trading services or relying on any information we
               provide.
             </p>
-            <p className="text-lg font-medium mt-4">Dispute Resolution:</p>
-            <p className="text-[16px]">
+            <div className=" w-fit h-fit overflow-hidden">
+              <p className="paraHeadingFooter text-lg font-medium translate-x-[100%] mt-4">
+                Dispute Resolution:
+              </p>
+            </div>
+            <p className="paraBottomFooter text-[16px] opacity-0">
               Any disputes arising between Mintbyte, the principal broker, and
               clients shall be subject to the jurisdiction of the courts in
               Mumbai, India. By engaging in stock trading services through
