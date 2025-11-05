@@ -451,7 +451,6 @@ const Home = () => {
 
           scrub: true,
         },
-     
       }
     );
 
@@ -468,14 +467,14 @@ const Home = () => {
       stagger: {
         each: 0.4, // small delay between each
       },
-       scrollTrigger: {
-          trigger: discoverImgRefs,
-          start: "top 75%",
-          end: "top 35%",
+      scrollTrigger: {
+        trigger: discoverImgRefs,
+        start: "top 75%",
+        end: "top 35%",
 
-          scrub: 1.5,
-        },
-        defaults: { ease: "power3.out" },
+        scrub: 1.5,
+      },
+      defaults: { ease: "power3.out" },
     });
 
     tl.to(
@@ -485,8 +484,8 @@ const Home = () => {
         scale: 1,
         duration: 2,
         ease: "power2.inOut",
-          scrollTrigger: {
-          trigger: '.image-container',
+        scrollTrigger: {
+          trigger: ".image-container",
           start: "top 75%",
           end: "top 35%",
 
@@ -494,7 +493,7 @@ const Home = () => {
         },
         defaults: { ease: "power3.out" },
       },
-      
+
       "-=1"
     );
   }, []);
@@ -659,9 +658,9 @@ const Home = () => {
 
   useGSAP(() => {
     const tl = gsap.timeline();
-    tl.to(".customerHeading1", {
+    tl.to(".customerHeading", {
       scrollTrigger: {
-        trigger: ".customerHeading1",
+        trigger: ".customerHeading",
         start: "top 80%",
         end: "top 35%",
         scrub: true,
@@ -670,16 +669,15 @@ const Home = () => {
       // delay: 1,
       duration: 1,
     });
-
-    tl.to(".customerHeading2", {
+    tl.to(".customerPara", {
       scrollTrigger: {
-        trigger: ".customerHeading2",
+        trigger: ".customerPara",
         start: "top 80%",
         end: "top 35%",
         scrub: true,
       },
-      y: "0%",
-      // delay: 1,
+      delay: 1,
+      opacity:1,
       duration: 1,
     });
   });
@@ -1244,16 +1242,16 @@ const Home = () => {
             <div className="w-full pb-10">
               <div className="text-center pt-20">
                 <div className="  overflow-hidden">
-                  <h1 className="customerHeading1 text-5xl translate-y-[100%] font-bold">
+                  <h1 className="customerHeading text-5xl translate-y-[100%] font-bold">
                     <span className="text-[#33BC24]">Trusted</span> by over
                   </h1>
                 </div>
                 <div className=" overflow-hidden">
-                  <h1 className="customerHeading2 text-5xl translate-y-[-100%]  font-bold text-yellow-400">
+                  <h1 className="customerHeading text-5xl translate-y-[-100%]  font-bold text-yellow-400">
                     25,000+ customers
                   </h1>
                 </div>
-                <p className="text-sm mt-5">
+                <p className="customerPara text-sm mt-5 opacity-0">
                   Don’t take our word for it. Here’s what other people are
                   saying about us…
                 </p>

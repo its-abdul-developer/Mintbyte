@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "../components/Footer/Footer";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const About = () => {
   const data = [
@@ -203,6 +206,542 @@ const About = () => {
     slidesToScroll: 1,
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+  });
+
+  // Who Are We?
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".aboutImg", {
+      scrollTrigger: {
+        trigger: ".aboutImg",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      scale: 1,
+      opacity: 1,
+      duration: 0.6,
+      ease: "power2.in",
+    });
+    tl.to(".aboutAbsoluteImg1", {
+      scrollTrigger: {
+        trigger: ".aboutAbsoluteImg1",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      y: "50%",
+      opacity: 1,
+      delay: 1,
+    });
+    tl.to(".aboutAbsoluteImg2", {
+      scrollTrigger: {
+        trigger: ".aboutAbsoluteImg2",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      y: 0,
+      opacity: 1,
+      delay: 1,
+    });
+    tl.to(".whoPara", {
+      scrollTrigger: {
+        trigger: ".whoPara",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      delay: 2,
+      duration: 0.6,
+      ease: "power2.in",
+    });
+  });
+
+  // Why Choose Mintbyte?
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.from(".animatedText2", {
+      scrollTrigger: {
+        trigger: ".animatedText2",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 0.5,
+      opacity: 0,
+      duration: 2,
+    });
+    tl.to(".ourAdvantages", {
+      scrollTrigger: {
+        trigger: ".ourAdvantages",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      duration: 0.6,
+    });
+    tl.to(".whyPara", {
+      scrollTrigger: {
+        trigger: ".whyPara",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      duration: 0.6,
+    });
+    tl.to(".whySlider", {
+      scrollTrigger: {
+        trigger: ".whySlider",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      duration: 0.6,
+    });
+  });
+
+  // fonder profile
+
+  useGSAP(() => {
+    const animatedText = document.querySelector(".animatedText3");
+    animatedText.innerHTML = animatedText.textContent
+      .split("")
+      .map((char) => `<span>${char}</span>`)
+      .join("");
+
+    const tl = gsap.timeline();
+
+    tl.from(animatedText.querySelectorAll("span"), {
+      scrollTrigger: {
+        trigger: animatedText,
+        start: "top 85%",
+        end: "top 35%",
+        scrub: true,
+      },
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      stagger: 0.1,
+    });
+
+    tl.to(".founderImg", {
+      scrollTrigger: {
+        trigger: ".founderImg",
+        start: "top 85%",
+        end: "top 35%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 0.6,
+    });
+    tl.to(".aboutFounder", {
+      scrollTrigger: {
+        trigger: ".aboutFounder",
+        start: "top 85%",
+        end: "top 35%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 0.6,
+    });
+  });
+
+  // Key Accomplishments
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.from(".animatedText4", {
+      scrollTrigger: {
+        trigger: ".animatedText4",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      rotationY: 180,
+      opacity: 0,
+      duration: 2,
+    });
+    tl.to(".casePara", {
+      scrollTrigger: {
+        trigger: ".casePara",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      y: 0,
+      duration: 0.6,
+    });
+    tl.fromTo(
+      ".caseImgDiv1",
+      { y: 200, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".caseImgDiv1",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+
+    // Case 2
+    tl.fromTo(
+      ".caseImgDiv2",
+      { y: -200, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".caseImgDiv2",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+
+    // Case 3
+    tl.fromTo(
+      ".caseImgDiv3",
+      { y: 200, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".caseImgDiv3",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+
+    // Case 4
+    tl.fromTo(
+      ".caseImgDiv4",
+      { y: -200, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        scrollTrigger: {
+          trigger: ".caseImgDiv4",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+      }
+    );
+
+    tl.to(".caseBtn", {
+      scrollTrigger: {
+        trigger: ".caseBtn",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 0.6,
+    });
+  });
+
+  // Environmental,
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".animatedText6", {
+      scrollTrigger: {
+        trigger: ".animatedText6",
+        start: "top 85%",
+        end: "top 35%",
+        // scrub: true,
+      },
+      textShadow:
+        "6px 6px 10px rgba(255, 0, 0, 0.8), -6px -6px 10px rgba(0, 226, 57, 0.8)",
+      opacity: 1,
+      repeat: -1,
+      repeatDelay: 0.2,
+      duration: 0.1,
+      yoyo: true,
+    });
+    tl.to(".environmentalPara", {
+      scrollTrigger: {
+        trigger: ".environmentalPara",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      textShadow:
+        "6px 6px 10px rgba(255, 0, 0, 0.8), -6px -6px 10px rgba(0, 226, 57, 0.8)",
+      duration: 0.1,
+    });
+    tl.to(".environmentalImg", {
+      scrollTrigger: {
+        trigger: ".environmentalImg",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+      opacity: 1,
+      scale: 1,
+      duration: 0.6,
+    });
+    tl.to(".environmentalSlider", {
+      scrollTrigger: {
+        trigger: ".environmentalSlider",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      duration: 0.6,
+    });
+  });
+
+  // Careers
+
+  useGSAP(() => {
+    gsap.from(".animatedText1", {
+      scrollTrigger: {
+        trigger: ".animatedText1",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+  });
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".careerPara", {
+      scrollTrigger: {
+        trigger: ".careerPara",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        scrub: true,
+      },
+
+      y: 0,
+      duration: 1,
+      stagger: {
+        each: 0.3,
+      },
+    });
+    tl.to(".careerTrackImg", {
+      scrollTrigger: {
+        trigger: ".careerTrackImg",
+        start: "top 70%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        scrub: true,
+      },
+      x: 0,
+      opacity: 1,
+
+      duration: 2,
+      stagger: {
+        each: 0.3,
+      },
+    });
+    tl.to(".careerImg", {
+      scrollTrigger: {
+        trigger: ".careerImg",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        scrub: true,
+      },
+
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+    });
+  });
+
+  // Job Opportunities
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.from(".animatedTextt2", {
+      scrollTrigger: {
+        trigger: ".animatedTextt2",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 0.5,
+      opacity: 0,
+      duration: 2,
+    });
+    tl.to(".jobPara", {
+      scrollTrigger: {
+        trigger: ".jobPara",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      y: 0,
+      duration: 1,
+    });
+    tl.to(".jobForm", {
+      scrollTrigger: {
+        trigger: ".jobForm",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      x: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".jobTrackImg", {
+      scrollTrigger: {
+        trigger: ".jobTrackImg",
+        start: "top 90%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      x: 0,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
+  // Trusted by over
+  // 25,000+ customers
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".customerHeading", {
+      scrollTrigger: {
+        trigger: ".customerHeading",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      // delay: 1,
+      duration: 1,
+    });
+    tl.to(".customerPara", {
+      scrollTrigger: {
+        trigger: ".customerPara",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      delay: 1,
+      opacity: 1,
+      duration: 1,
+    });
+
+    tl.to(".mobileReview", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileReview",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSelect", {
+      y: "0%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSelect",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSlider", {
+      y: "50%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSlider",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileBtn", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileBtn",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: 1.5,
+      },
+    });
+
+      tl.to(".customerSubscribe", {
+      scrollTrigger: {
+        trigger: ".customerSubscribe",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      delay: 1,
+      duration: 0.4,
+    });
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -218,11 +757,16 @@ const About = () => {
       <div className="w-full">
         <div
           id="who-we-are"
-          className="text-6xl font-bold w-full h-[65vh] relative flex items-end justify-center pb-15"
+          className=" w-full h-[65vh] relative flex items-end justify-center pb-15"
         >
-          <h1>
-            Who <span className="text-[#33BC24]">Are We?</span>
-          </h1>
+          <div className="row w-100">
+            <div className="col-12 text-center">
+              <h1 className="animatedText text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                Who <span className="text-[#33BC24]">Are We?</span>
+              </h1>
+            </div>
+          </div>
+
           <svg
             className=" absolute left-[58%] top-[67%]  text-green-400"
             width="117"
@@ -241,7 +785,7 @@ const About = () => {
         </div>
         <div className="w-full  flex gap-22 px-35 pb-36">
           <div className="w-[40%] h-[46vh]  relative">
-            <div className="absolute right-[-10%] w-[10vw] h-[10vw] p-1.5 rounded-lg border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+            <div className="aboutAbsoluteImg1 absolute z-1 translate-y-[-50%] opacity-0 right-[-10%] w-[10vw] h-[10vw] p-1.5 rounded-lg border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <div className="w-full h-[60%] rounded-lg overflow-hidden ">
                 <img
                   className="w-full h-full object-cover"
@@ -254,7 +798,7 @@ const About = () => {
                 Empowering Financial Success Through Innovation & Technology.
               </p>
             </div>
-            <div className="absolute left-[1%] top-[75%] w-[10vw] h-[10vw] p-1.5 rounded-lg border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+            <div className="aboutAbsoluteImg2 absolute z-1 translate-y-[50%] opacity-0 left-[1%] top-[75%] w-[10vw] h-[10vw] p-1.5 rounded-lg border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <div className="w-full h-[60%] rounded-lg overflow-hidden">
                 <img
                   className="w-full h-full object-cover"
@@ -267,7 +811,7 @@ const About = () => {
                 Empowering Financial Success Through Innovation & Technology.
               </p>
             </div>
-            <div className="w-full h-full  rounded-2xl overflow-hidden">
+            <div className="aboutImg opacity-0 scale-[0.8] w-full h-full  rounded-2xl overflow-hidden">
               <img
                 className="h-full w-full object-cover"
                 src="https://mintbyte.com/wp-content/uploads/2025/01/Amit_Tiwari_Generate_an_image_of_modern_Indian_finance_profess_49817cc8-3c8b-4595-84e9-f5f0b99edff2-1024x845.png.webp"
@@ -275,7 +819,7 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="w-[60%] h-full p-10">
+          <div className="whoPara opacity-0 w-[60%] h-full p-10">
             <h2 className="text-3xl font-medium">About Us</h2>
             <p className="mt-5 text-lg">
               At Mintbyte, we're not just portfolio managers—we're your partners
@@ -302,16 +846,25 @@ const About = () => {
         </div>
         <div id="why-choose-us" className="w-full bg-[#7777772f]">
           <div className="w-full h-[30vh] flex flex-col items-center justify-center gap-4">
-            <h1 className="text-6xl font-bold">
-              Why Choose <span className="text-[#33BC24]">Mintbyte?</span>
-            </h1>
-            <h2 className="text-3xl font-medium">Our Advantages</h2>
-            <p className="text-xl w-[25%] text-center">
-              At Mintbyte, you will get all the financial world benefits to
-              achieve lasting success.{" "}
-            </p>
+            <div class="col-12 text-center">
+              <h1 class="animatedText2 text-6xl font-bold translate-none rotate-none scale-none opacity transform scale-[0.774] translate-x-0 translate-y-0">
+                Why Choose <span className="text-[#33BC24]">Mintbyte</span>
+              </h1>
+            </div>
+
+            <div className="w-fit overflow-hidden ">
+              <h2 className="ourAdvantages text-3xl translate-y-[100%] font-medium">
+                Our Advantages
+              </h2>
+            </div>
+            <div className=" overflow-hidden w-[25%]">
+              <p className="whyPara text-xl translate-y-[100%]  text-center">
+                At Mintbyte, you will get all the financial world benefits to
+                achieve lasting success.
+              </p>
+            </div>
           </div>
-          <div className="w-full mx-auto pb-20 px-25">
+          <div className="whySlider w-full  translate-y-[-25%] mx-auto pb-20 px-25">
             <div className="mt-10 ">
               <Slider {...settings}>
                 {data.map((d, i) => (
@@ -338,11 +891,61 @@ const About = () => {
           id="founder's-profile"
           className="bg-[url('/images/groups/fonder.png')] bg-cover bg-no-repeat bg-center relative w-full p-25 px-40"
         >
-          <h1 className="text-6xl font-bold">
-            Founder's <span className="text-[#33BC24]">Introduction</span>
-          </h1>
-          <img className=" mt-20" src="/images/groups/fonder2.png" alt="" />
-          <div className="absolute top-[50%] left-[36%] w-[45%] h-[40vh] p-12 bg-[#FFD921] text-black">
+          <div class="row">
+            <div class="w-full">
+              <h1 class="animatedText3 font-bold text-6xl text-yellow-400">
+                <span class="translate-y-0 opacity-100 inline-block  ">F</span>
+                <span class="translate-y-0 opacity-100 inline-block  ">o</span>
+                <span class="translate-y-0 opacity-100 inline-block  ">u</span>
+                <span class="translate-y-0 opacity-100 inline-block  ">n</span>
+                <span class="translate-y-0 opacity-100 inline-block  ">d</span>
+                <span class="translate-y-[0.07px] opacity-[0.9985]   inline-block">
+                  e
+                </span>
+                <span class="translate-y-[0.96px] opacity-[0.9808]   inline-block">
+                  r'
+                </span>
+                <span class="translate-y-[2.84px] opacity-[0.9431]   inline-block">
+                  s
+                </span>
+                <span class="translate-y-[9.61px] opacity-[0.8077] inline-block">
+                  &nbsp;
+                </span>
+                <span class="translate-y-[5.73px] opacity-[0.8854] inline-block">
+                  I
+                </span>
+                <span class="translate-y-[14.5px] opacity-[0.71] inline-block">
+                  n
+                </span>
+                <span class="translate-y-[20.38px] opacity-[0.5923] inline-block">
+                  t
+                </span>
+                <span class="translate-y-[27.27px] opacity-[0.4546] inline-block">
+                  r
+                </span>
+                <span class="translate-y-[35.15px] opacity-[0.2969] inline-block">
+                  o
+                </span>
+                <span class="translate-y-[9.61px] opacity-[0.8077] inline-block">
+                  d
+                </span>
+
+                <span class="translate-y-[50px] opacity-0 inline-block">u</span>
+                <span class="translate-y-[50px] opacity-0 inline-block">c</span>
+                <span class="translate-y-[50px] opacity-0 inline-block">t</span>
+                <span class="translate-y-[50px] opacity-0 inline-block">i</span>
+                <span class="translate-y-[50px] opacity-0 inline-block">o</span>
+                <span class="translate-y-[50px] opacity-0 inline-block">n</span>
+              </h1>
+            </div>
+          </div>
+
+          <img
+            className="founderImg opacity-0 mt-20"
+            src="/images/groups/fonder2.png"
+            alt=""
+          />
+          <div className="aboutFounder opacity-0 absolute top-[50%] left-[36%] w-[45%] h-[40vh] p-12 bg-[#FFD921] text-black">
             <h1 className="text-3xl font-semibold">Founder</h1>
             <p className="text-xl mt-6 ">
               Amit Tiwari is a <b>dynamic</b> and <b>innovative leader</b> in
@@ -360,19 +963,25 @@ const About = () => {
           </div>
         </div>
         <div id="case-studies" className="w-full pb-20">
-          <div className="h-80 flex flex-col items-center justify-center pt-10">
-            <h1 className="text-6xl font-bold">
-              Key <span className="text-[#33BC24]">Accomplishments</span>
-            </h1>
-            <p className="text-lg mt-5 w-[50%] text-center">
-              Amit’s vision and expertise drive Mintbyte’s mission to empower
-              investors and provide them with the tools and strategies they need
-              to achieve lasting financial well-being.
-            </p>
+          <div className="h-80 flex flex-col items-center justify-center">
+            <div class="row">
+              <div class="col-12 text-center">
+                <h1 class="animatedText4 font-bold text-6xl translate-none rotate-none scale-none transform translate-x-0 translate-y-0 translate-z-0 [transform:rotateY(36.382deg)]">
+                  Key <span className="text-[#33BC24]">Accomplishments</span>
+                </h1>
+              </div>
+            </div>
+            <div className="w-[50%] text-center overflow-hidden">
+              <p className="casePara text-lg mt-5 translate-y-[100%]">
+                Amit’s vision and expertise drive Mintbyte’s mission to empower
+                investors and provide them with the tools and strategies they
+                need to achieve lasting financial well-being.
+              </p>
+            </div>
           </div>
           <div className="w-full  px-25 ">
             <div className="flex gap-10 w-full h-full pb-20">
-              <div className="w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
+              <div className="caseImgDiv1  w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
                 <div className="w-full h-[80%]">
                   <img
                     className="w-full h-full object-cover"
@@ -384,7 +993,7 @@ const About = () => {
                   Pioneering Digital Transformation
                 </h2>
               </div>
-              <div className="w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
+              <div className="caseImgDiv2  w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
                 <div className="w-full h-[80%]">
                   <img
                     className="w-full h-full object-cover"
@@ -396,7 +1005,7 @@ const About = () => {
                   Expertise in Intelligent Automation
                 </h2>
               </div>
-              <div className="w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
+              <div className="caseImgDiv3 w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
                 <div className="w-full h-[80%]">
                   <img
                     className="w-full h-full object-cover"
@@ -408,7 +1017,7 @@ const About = () => {
                   Strategic Investment Acumen
                 </h2>
               </div>
-              <div className="w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
+              <div className="caseImgDiv4  w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
                 <div className="w-full h-[80%]">
                   <img
                     className="w-full h-full object-cover"
@@ -421,21 +1030,28 @@ const About = () => {
                 </h2>
               </div>
             </div>
-            <button className="px-5 py-3 rounded-[50px] bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer ml-[50%] mb-20">
+            <button className="caseBtn opacity-0 px-5 py-3 rounded-[50px] bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer ml-[50%] mb-20">
               Learn more
             </button>
           </div>
           <div id="environmental" className="w-full h-[40vh] flex gap-20 px-25">
             <div className="w-1/2 h-full  pr-20 pt-20 relative">
-              <h1 className="text-6xl font-bold ">
-                <span className="text-[#33BC24]">Environmental,</span> Social,
-                and Governance
-              </h1>
-              <p className="text-lg w-[85%] mt-8">
-                The innovative initiatives emphasize the intersection of modern
-                technology, sustainability, and inclusivity, reflecting a
-                forward-thinking approach to CSR in the wealth management sector{" "}
-              </p>
+              <div class="row">
+                <div class="col-12">
+                  <h1 class="animatedText6 opacity-100 text-6xl font-bold [text-shadow:rgba(96,0,0,0.3)_2.26px_2.26px_3.76px,rgba(0,85,21,0.3)_-2.26px_-2.26px_3.76px]">
+                    <span className="text-[#33BC24]">Environmental,</span>{" "}
+                    Social, and Governance
+                  </h1>
+                </div>
+              </div>
+              <div className="overflow-hidden">
+                <p className="environmentalPara text-lg w-[85%] translate-y-[100%] mt-8">
+                  The innovative initiatives emphasize the intersection of
+                  modern technology, sustainability, and inclusivity, reflecting
+                  a forward-thinking approach to CSR in the wealth management
+                  sector{" "}
+                </p>
+              </div>
               <svg
                 className=" absolute left-[69%] top-[0%]  text-green-400"
                 width="117"
@@ -452,7 +1068,7 @@ const About = () => {
                 </g>
               </svg>
             </div>
-            <div className="w-1/2 h-full  rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+            <div className="environmentalImg w-1/2 h-full opacity-0 scale-[0.7]  rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
                 src="https://mintbyte.com/wp-content/uploads/2025/01/Screenshot-2024-12-20-at-2.21.50-PM-1-1024x542.png.webp"
@@ -460,7 +1076,7 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="w-full mx-auto pt-30 px-25">
+          <div className="environmentalSlider translate-y-[-25%] w-full mx-auto pt-30 px-25">
             <div className="mt-10 ">
               <Slider {...settings2}>
                 {data2.map((d, i) => (
@@ -488,16 +1104,28 @@ const About = () => {
         </div>
         <div id="career" className="w-full pb-20 bg-[#7777772f]">
           <div className="w-full  text-center py-20 relative">
-            <h1 className="text-6xl font-bold text-[#33BC24]">Careers</h1>
-            <p className="my-4">Join Our Team of Financial Innovators!</p>
-            <p className="w-[45%] ml-[26.5vw]">
-              At Mintbyte, we’re not just shaping the future of finance – we’re
-              building a team of passionate, innovative individuals who are
-              driven to make a difference. We offer a dynamic and rewarding work
-              environment where you can grow your career, collaborate with
-              industry experts, and make a meaningful impact on the financial
-              well-being of our clients.
-            </p>
+            <div className="row">
+              <div className="col-12 text-center">
+                <h1 className="animatedText1 text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                  <span className="text-[#33BC24]">Careers</span>
+                </h1>
+              </div>
+            </div>
+            <div className="overflow-hidden">
+              <p className="careerPara translate-y-[150%] my-4">
+                Join Our Team of Financial Innovators!
+              </p>
+            </div>
+            <div className="overflow-hidden">
+              <p className="careerPara translate-y-[150%] w-[45%] ml-[26.5vw]">
+                At Mintbyte, we’re not just shaping the future of finance –
+                we’re building a team of passionate, innovative individuals who
+                are driven to make a difference. We offer a dynamic and
+                rewarding work environment where you can grow your career,
+                collaborate with industry experts, and make a meaningful impact
+                on the financial well-being of our clients.
+              </p>
+            </div>
             <svg
               className=" absolute left-[54%] top-[2%]  text-green-400"
               width="117"
@@ -516,7 +1144,7 @@ const About = () => {
           </div>
           <div className="w-full h-[50vh]  px-30 flex">
             <div className="w-1/2 h-full pt-6">
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -528,7 +1156,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -540,7 +1168,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -552,7 +1180,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -565,7 +1193,7 @@ const About = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+            <div className="careerImg w-1/2 h-full opacity-0 scale-[0.7] rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
                 src="/images/groups/team.png"
@@ -574,20 +1202,22 @@ const About = () => {
             </div>
           </div>
           <div className="w-full  text-center pt-20">
-            <h1 className="text-6xl font-bold ">
-              Job <span className="text-[#33BC24]">Opportunities</span>
-            </h1>
-
-            <p className="  mt-8">
-              If you're passionate about finance, technology, and client
-              service, we invite you to explore career opportunities at
-              Mintbyte.
-            </p>
-            <p>View current openings and submit your application.</p>
-            <p>We're excited to hear from you!</p>
+            <div class="col-12 text-center">
+              <h1 class="animatedTextt2 text-6xl font-bold translate-none rotate-none scale-none opacity transform scale-[0.774] translate-x-0 translate-y-0">
+                Job <span className="text-[#33BC24]">Opportunities</span>
+              </h1>
+            </div>
+            <div className="overflow-hidden w-full flex items-center justify-center">
+              <p className=" jobPara mt-8 translate-y-[100%] w-[50%]">
+                If you're passionate about finance, technology, and client
+                service, we invite you to explore career opportunities at
+                Mintbyte. View current openings and submit your application.
+                We're excited to hear from you!
+              </p>
+            </div>
           </div>
           <div className="w-full  px-30 pl-40 flex justify-between">
-            <div className="flex justify-center items-center h-full w-1/3 pl-15">
+            <div className="jobForm translate-x-[-40%] opacity-0 flex justify-center items-center h-full w-1/3 pl-15">
               <form
                 onSubmit={handleSubmit}
                 className=" w-full rounded-2xl p-8 w-[400px] mt-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]"
@@ -677,7 +1307,7 @@ const About = () => {
             </div>
 
             <div className="w-1/2 h-full pt-20">
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -689,7 +1319,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -701,7 +1331,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -713,7 +1343,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -732,13 +1362,17 @@ const About = () => {
         <div id="testimonial" className="w-full min-h-[100vh] px-2 relative">
           <div className="w-full min-h-[100vh] transition-all ease-linear hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-b-[50%] overflow-hidden px-20">
             <div className="text-center pt-20 relative">
-              <h1 className="text-5xl font-bold">
-                <span className="text-[#33BC24]">Trusted</span> by over
-              </h1>
-              <h1 className="text-5xl font-bold text-yellow-400">
-                25,000+ customers
-              </h1>
-              <p className="text-sm mt-5">
+              <div className="  overflow-hidden">
+                <h1 className="customerHeading text-5xl translate-y-[100%] font-bold">
+                  <span className="text-[#33BC24]">Trusted</span> by over
+                </h1>
+              </div>
+              <div className=" overflow-hidden">
+                <h1 className="customerHeading text-5xl translate-y-[-100%]  font-bold text-yellow-400">
+                  25,000+ customers
+                </h1>
+              </div>
+              <p className="customerPara text-sm mt-5 opacity-0">
                 Don’t take our word for it. Here’s what other people are saying
                 about us…
               </p>
@@ -760,8 +1394,8 @@ const About = () => {
             </div>
 
             <div className="px-20 ">
-              <div className="w-full rounded-t-lg  px-3 text-sm flex justify-between pt-15">
-                <div className="w-70 h-18 px-2 py-2 bg-white rounded">
+              <div className="w-full rounded-t-lg overflow-hidden  px-3 text-sm flex justify-between pt-6">
+                <div className="mobileReview translate-y-[-150%] opacity-0 w-70 h-18 px-2 py-2 bg-white rounded">
                   <img src="/images/groups/trust.png" alt="" />
                   <p className="text-sm mt-2 text-black tracking-tight">
                     4.8 OUT OF 5 BASED ON 700+ REVIEWS
@@ -769,12 +1403,19 @@ const About = () => {
                 </div>
                 <div className="">
                   <select
-                    className="px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer"
+                    className="mobileSelect px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] translate-y-[150%] opacity-0 transition-all duration-300 cursor-pointer"
                     id="city"
                     name="city"
                   >
                     <option value="Sort By">Sort By</option>
-                    <option value="All Reviews">All Reviews</option>
+                    <option
+                      onClick={() => {
+                        console.log("hello");
+                      }}
+                      value="All Reviews"
+                    >
+                      All Reviews
+                    </option>
                     <option value="Trustindex">Trustindex</option>
                     <option value="Apple Appstore">Apple Appstore</option>
                     <option value="Google Playstore">Google Playstore</option>
@@ -782,7 +1423,7 @@ const About = () => {
                 </div>
               </div>
               <div className="w-full mx-auto pb-10">
-                <div className="mt-20 ">
+                <div className="mobileSlider translate-y-[-50%] opacity-0 mt-20 ">
                   <Slider {...settings3}>
                     {data3.map((d, i) => (
                       <div
@@ -811,15 +1452,15 @@ const About = () => {
                     ))}
                   </Slider>
                 </div>
-                <div className="text-center mt-30">
-                  <button className="px-6 py-4 rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
+                <div className="text-center mt-15 overflow-hidden">
+                  <button className="mobileBtn px-6 py-4 translate-y-[-100%] rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
                     View all Testimonials <i class="ri-arrow-right-s-line"></i>{" "}
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="w-full h-[45vh]">
+            <div className="customerSubscribe translate-y-[-35%] w-full h-[45vh]">
               <div className="absolute w-[70%] h-[20vh] border bottom-30 left-[15%] rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
