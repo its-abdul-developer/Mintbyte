@@ -2,8 +2,65 @@ import React from "react";
 import AllPagesTopContent from "../components/AllPagesTopContent";
 import Footer from "../components/Footer/Footer";
 import LiquidChrome from "../Reactbits/LiquidChrome";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const OurService = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+  });
+
+  useGSAP(() => {
+    // Animate each service card individually when it enters the viewport
+    gsap.utils.toArray(".ourServices").forEach((section) => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          end: "top 40%",
+          toggleActions: "play none none reset",
+          scrub: true,
+        },
+        x: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
+  });
+
+  useGSAP(() => {
+    gsap.utils.toArray(".ourServicesBottom").forEach((section) => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -12,17 +69,21 @@ const OurService = () => {
         title3="Financial"
         title4="Success"
         flex="hidden"
-         height="h-[115vh]"
+        height="h-[115vh]"
         // flex2="hidden"
         description="Welcome to Mintbyte, your partner in navigating the complexities of the financial world. We offer a comprehensive suite of services designed to help you achieve your financial goals, whether you’re planning for retirement, growing your wealth, or seeking financial security."
         homeVideo="/videos/video9.mp4"
       />
       <div className="w-full h-[50vh] "></div>
-      <div className="w-full min-h-[100vh]  flex flex-col items-center py-15 px-40 ">
-        <h1 className="font-bold text-7xl tracking-tight text-center">
-          Our <span className="text-[#33BC24]">Key Services</span>
-        </h1>
-        <div className="w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+      <div className="w-full min-h-[100vh] overflow-hidden flex flex-col items-center py-15 px-40 ">
+        <div className="row">
+          <div className="col-12 text-center">
+            <h1 className="animatedText text-7xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+              Our <span className="text-[#33BC24]">Key Services</span>
+            </h1>
+          </div>
+        </div>
+        <div className="ourServices opacity-0 translate-x-[30%] w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full p-5 ">
             <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
@@ -44,7 +105,7 @@ const OurService = () => {
             </button>
           </div>
         </div>
-        <div className="w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[-30%] w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full flex flex-col justify-center items-start p-10">
             <h2 className="text-3xl font-medium">Stock Trading Services</h2>
             <p className="text-xl mt-10 w-[80%]">
@@ -66,7 +127,7 @@ const OurService = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[30%] w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full  p-5">
             <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
@@ -90,7 +151,7 @@ const OurService = () => {
             </button>
           </div>
         </div>
-        <div className="w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[-30%] w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full flex flex-col justify-center items-start p-10">
             <h2 className="text-3xl font-medium">
               Alternate Investment Funds (AIF)
@@ -114,7 +175,7 @@ const OurService = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[30%] w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full p-5">
             <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
@@ -136,7 +197,7 @@ const OurService = () => {
             </button>
           </div>
         </div>
-        <div className="w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[-30%] w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full  flex flex-col justify-center items-start p-10">
             <h2 className="text-3xl font-medium">
               National Pension Scheme (NPS)
@@ -160,7 +221,7 @@ const OurService = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[48vh] mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[30%] w-full h-[48vh] mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full  p-5">
             <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
@@ -182,7 +243,7 @@ const OurService = () => {
             </button>
           </div>
         </div>
-        <div className="w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[-30%] w-full h-[48vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full flex flex-col justify-center items-start p-10">
             <h2 className="text-3xl font-medium">Insurance</h2>
             <p className="text-xl mt-10 w-[80%]">
@@ -204,7 +265,7 @@ const OurService = () => {
             </div>
           </div>
         </div>
-        <div className="w-full h-[48vh] mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+        <div className="ourServices opacity-0 translate-x-[30%] w-full h-[48vh] mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
           <div className="w-1/2 h-full p-5">
             <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
@@ -227,7 +288,7 @@ const OurService = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[80vh] bg-red-100  z-10  relative">
+      <div className="w-full h-[80vh]  z-10  relative">
         <div className="absolute inset-0 -z-9 ">
           <LiquidChrome
             baseColor={[0.1, 0.1, 0.1]}
@@ -237,7 +298,7 @@ const OurService = () => {
           />
         </div>
         <div className="w-full h-full rounded-b-[50%] pt-24  bg-[#090909]  ">
-          <div className="w-full h-[30vh] bg-[#77777787] px-30 flex items-center justify-between">
+          <div className="ourServicesBottom translate-y-[-35%] w-full h-[30vh] bg-[#77777787] px-30 flex items-center justify-between">
             <div>
               <h1 className="text-5xl font-bold">
                 Start on Platform from today.
@@ -256,7 +317,7 @@ const OurService = () => {
               </button>
             </div>
           </div>
-          <div className="w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+          <div className="ourServicesBottom translate-y-[40%] w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
             <div className="w-1/2">
               {" "}
               <h1 className="text-3xl font-bold">
@@ -284,9 +345,7 @@ const OurService = () => {
               </div>
             </div>
           </div>
-          
         </div>
-        
       </div>
       <div className="w-full">
         <Footer />
