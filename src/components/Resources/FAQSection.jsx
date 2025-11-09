@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const FAQSection = ({ title, faqs }) => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -8,10 +11,48 @@ const FAQSection = ({ title, faqs }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".faqChildHeading", {
+      scrollTrigger: {
+        trigger: ".faqChildHeading",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      x: "0",
+      opacity: 1,
+      duration: 2,
+      stagger: {
+        each: 0.5,
+      },
+    });
+    tl.to(".faqsDiv", {
+      scrollTrigger: {
+        trigger: ".faqsDiv",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 2,
+      stagger: {
+        each: 0.5,
+      },
+    });
+  });
+
   return (
     <div className="mt-16">
-      <h2 className="uppercase text-3xl  font-medium mb-6">{title}</h2>
-      <div className="space-y-4">
+      <div className="overflow-hidden">
+        <h2 className="faqChildHeading uppercase text-3xl translate-x-[-100%] opacity-0  font-medium mb-6">
+          {title}
+        </h2>
+      </div>
+      <div className="faqsDiv opacity-0 space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
@@ -31,7 +72,9 @@ const FAQSection = ({ title, faqs }) => {
 
             <div
               className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                openIndex === index ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                openIndex === index
+                  ? "max-h-40 opacity-100"
+                  : "max-h-0 opacity-0"
               }`}
             >
               <p className="px-6 pb-4 text-gray-400 text-base leading-relaxed">

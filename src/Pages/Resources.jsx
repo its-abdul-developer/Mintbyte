@@ -4,6 +4,9 @@ import { ChevronDown } from "lucide-react";
 import FAQSection from "../components/Resources/FAQSection";
 import Footer from "../components/Footer/Footer";
 import { Search } from "lucide-react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Resources = () => {
   const faqs = [
@@ -115,6 +118,205 @@ const Resources = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Mutual Funds Tools
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".mutualDiv", {
+      scrollTrigger: {
+        trigger: ".mutualDiv",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".mutualHeading", {
+      scrollTrigger: {
+        trigger: ".mutualHeading",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".mutualPara", {
+      scrollTrigger: {
+        trigger: ".mutualPara",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".mutualParagraph", {
+      scrollTrigger: {
+        trigger: ".mutualParagraph",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".mutualImg", {
+      scrollTrigger: {
+        trigger: ".mutualImg",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
+  // Financial Calculators
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".financialDiv", {
+      scrollTrigger: {
+        trigger: ".financialDiv",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".financialHeading", {
+      scrollTrigger: {
+        trigger: ".financialHeading",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".financialPara", {
+      scrollTrigger: {
+        trigger: ".financialPara",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+
+    tl.to(".financialParagraph", {
+      scrollTrigger: {
+        trigger: ".financialParagraph",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".financialImg", {
+      scrollTrigger: {
+        trigger: ".financialImg",
+        start: "top 70%",
+        end: "top 35%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
+  // FAQs
+
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+
+    const tl = gsap.timeline();
+
+    tl.to(".faqPara", {
+      scrollTrigger: {
+        trigger: ".faqPara",
+        start: "top 70%", // Animation starts when the element enters the viewport
+        end: "top 40%",
+        scrub: true,
+        // End point ensures it doesn't trigger prematurely
+      },
+
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".searchBox", {
+      scrollTrigger: {
+        trigger: ".searchBox",
+        start: "top 70%", // Animation starts when the element enters the viewport
+        end: "top 40%",
+        scrub: true,
+        // End point ensures it doesn't trigger prematurely
+      },
+
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".faqsHeading", {
+      scrollTrigger: {
+        trigger: ".faqsHeading",
+        start: "top 70%", // Animation starts when the element enters the viewport
+        end: "top 40%",
+        scrub: true,
+        // End point ensures it doesn't trigger prematurely
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
+  useGSAP(() => {
+    gsap.utils.toArray(".resourcesBottom").forEach((section) => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
+  });
+
   return (
     <>
       {/* ---------- Hero Section ---------- */}
@@ -132,17 +334,21 @@ const Resources = () => {
 
       {/* ---------- Mutual Fund Tools ---------- */}
       <div className="w-full min-h-[100vh] pt-[20vw] px-[12vw]">
-        <div className="w-full bg-[#77777721] pt-10 rounded-3xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
-          <h1 className="font-bold text-7xl tracking-tight text-center">
-            Mutual Fund<span className="text-[#33BC24]"> Tools</span>
-          </h1>
-          <p className="text-xl text-center mt-5">
-            Choose like a Strategist. Outsmart the Average. Invest with
-            Intelligence.
-          </p>
+        <div className="mutualDiv translate-y-[-10%] opacity-0 w-full bg-[#77777721] pt-10 rounded-3xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+          <div className="overflow-hidden">
+            <h1 className="mutualHeading font-bold text-7xl translate-y-[100%] opacity-0 tracking-tight text-center">
+              Mutual Fund<span className="text-[#33BC24]"> Tools</span>
+            </h1>
+          </div>
+          <div className="overflow-hidden">
+            <p className="mutualPara text-xl text-center translate-y-[100%] opacity-0 mt-5">
+              Choose like a Strategist. Outsmart the Average. Invest with
+              Intelligence.
+            </p>
+          </div>
 
-          <div className="w-full h-[70vh] flex flex-col lg:flex-row gap-10 px-10">
-            <div className="lg:w-1/2 w-full text-xl pt-10">
+          <div className=" w-full h-[70vh] flex flex-col lg:flex-row gap-10 px-10">
+            <div className="mutualParagraph translate-y-[-8%] opacity-0 lg:w-1/2 w-full text-xl pt-10">
               <p>
                 Cut through fund factsheets, guesswork and market clutter. Our
                 Mutual Fund Tools are built for investors who want to go beyond
@@ -170,10 +376,10 @@ const Resources = () => {
               </button>
             </div>
 
-            <div className="lg:w-1/2 w-full rounded-3xl overflow-hidden">
+            <div className="mutualImg scale-[0.7] opacity-0 lg:w-1/2 pt-10 w-full rounded-3xl overflow-hidden">
               <img
                 src="https://mintbyte.com/wp-content/uploads/2025/07/image-29.png.webp"
-                className="w-full h-full object-cover"
+                className="w-full object-cover"
                 alt="Mutual Fund Tools"
               />
             </div>
@@ -183,16 +389,20 @@ const Resources = () => {
 
       {/* ---------- Financial Calculators ---------- */}
       <div className="w-full min-h-[100vh] pt-[8vw] px-[12vw]">
-        <div className="w-full bg-[#77777721] pt-10 rounded-3xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
-          <h1 className="font-bold text-7xl tracking-tight text-center">
-            Financial<span className="text-[#33BC24]"> Calculators</span>
-          </h1>
-          <p className="text-xl text-center mt-5">
-            Crunch the Numbers. Predict the Future. Invest with Intent.
-          </p>
+        <div className="financialDiv translate-y-[-10%] opacity-0 w-full bg-[#77777721] pt-10 rounded-3xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+          <div className="overflow-hidden">
+            <h1 className="financialHeading font-bold text-7xl translate-y-[100%] opacity-0 tracking-tight text-center">
+              Financial<span className="text-[#33BC24]"> Calculators</span>
+            </h1>
+          </div>
+          <div className="overflow-hidden">
+            <p className="financialPara text-xl text-center translate-y-[100%] opacity-0 mt-5">
+              Crunch the Numbers. Predict the Future. Invest with Intent.
+            </p>
+          </div>
 
           <div className="w-full h-[70vh] flex flex-col lg:flex-row gap-10 px-10">
-            <div className="lg:w-1/2 w-full text-xl pt-10">
+            <div className="financialParagraph translate-y-[-8%] opacity-0 lg:w-1/2 w-full text-xl pt-10">
               <p>
                 When numbers are done right, decisions become smarter – Say
                 goodbye to clunky spreadsheets. Our calculators translate
@@ -219,10 +429,10 @@ const Resources = () => {
               </button>
             </div>
 
-            <div className="lg:w-1/2 w-full rounded-3xl overflow-hidden">
+            <div className="financialImg scale-[0.7] opacity-0 lg:w-1/2 pt-10 w-full rounded-3xl overflow-hidden">
               <img
                 src="https://mintbyte.com/wp-content/uploads/2025/07/image-30.png.webp"
-                className="w-full h-full object-cover"
+                className="w-full object-cover"
                 alt="Financial Calculators"
               />
             </div>
@@ -234,18 +444,25 @@ const Resources = () => {
         <div>
           <section className="w-full min-h-[50vh] bg-transparent flex flex-col items-center justify-center px-6 text-center">
             {/* Title */}
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2">
-              Frequently Asked{" "}
-              <span className="text-[#00FF66]">Questions (FAQs)</span>
-            </h1>
+
+            <div className="row">
+              <div className="col-12 text-center">
+                <h1 className="animatedText text-4xl md:text-6xl mb-3 font-bold text-white translate-none rotate-none scale-none opacity-100 translate-0">
+                  Frequently Asked{" "}
+                  <span className="text-[#00FF66]">Questions (FAQs)</span>
+                </h1>
+              </div>
+            </div>
 
             {/* Subtitle */}
-            <p className="text-gray-400 mb-6 text-sm md:text-xl mt-4">
-              Quick answers to common queries about ThirtySix Studio services.
-            </p>
+            <div className="overflow-hidden">
+              <p className="faqPara text-gray-400 translate-y-[100%] opacity-0 mb-6 text-sm md:text-xl mt-4">
+                Quick answers to common queries about ThirtySix Studio services.
+              </p>
+            </div>
 
             {/* Search Box */}
-            <div className=" w-full relative">
+            <div className="searchBox w-full relative opacity-0">
               <input
                 type="text"
                 placeholder="Search here!"
@@ -258,11 +475,13 @@ const Resources = () => {
             </div>
           </section>
         </div>
-        <h1 className="uppercase text-4xl text-[#33BC24] font-bold">
-          Onboarding
-        </h1>
+        <div className="overflow-hidden">
+          <h1 className="faqsHeading uppercase text-4xl translate-y-[100%] opacity-0 text-[#33BC24] font-bold">
+            Onboarding
+          </h1>
+        </div>
 
-        <FAQSection title="GENERAL SETUP" faqs={faqs} />
+        <FAQSection title="GENERAL SETUP" faqs={faqs}/>
         <FAQSection title="PAN & KYC VERIFICATION" faqs={faqs2} />
         <FAQSection title="PERSONAL & BANK DETAILS" faqs={faqs3} />
         <FAQSection title="EMAIL VERIFICATION & AUTHENTICATIONS" faqs={faqs4} />
@@ -274,7 +493,7 @@ const Resources = () => {
           <div className="px-[8vw]">
             <FAQSection title="PAN & KYC VERIFICATION" faqs={faqs2} />
           </div>
-          <div className="w-full h-[30vh] bg-[#77777787] mt-[12vw] px-30 flex items-center justify-between">
+          <div className="resourcesBottom translate-y-[35%] opacity-0 w-full h-[30vh] bg-[#77777787] mt-[12vw] px-30 flex items-center justify-between">
             <div>
               <h1 className="text-5xl font-bold">
                 Start on Platform from today.
@@ -293,7 +512,7 @@ const Resources = () => {
               </button>
             </div>
           </div>
-          <div className="w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+          <div className="resourcesBottom translate-y-[-40%] opacity-0 w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
             <div className="w-1/2">
               {" "}
               <h1 className="text-3xl font-bold">
