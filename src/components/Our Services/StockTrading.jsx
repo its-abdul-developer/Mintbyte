@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "../Footer/Footer";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 const StockTrading = () => {
   const data = [
     {
@@ -92,6 +95,231 @@ const StockTrading = () => {
     slidesToScroll: 1,
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+
+    const tl = gsap.timeline();
+    tl.to(".mutualImg", {
+      scrollTrigger: {
+        trigger: ".mutualImg",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".mutualPara", {
+      scrollTrigger: {
+        trigger: ".mutualPara",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".typesStock", {
+      scrollTrigger: {
+        trigger: ".typesStock",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".stockTypesDiv").forEach((stockDiv) => {
+      tl.to(stockDiv, {
+        scrollTrigger: {
+          trigger: stockDiv,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".chooseStock", {
+      scrollTrigger: {
+        trigger: ".chooseStock",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".stockTrack").forEach((stockTrack) => {
+      tl.to(stockTrack, {
+        scrollTrigger: {
+          trigger: stockTrack,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: "50%",
+
+        opacity: 1,
+        duration: 2,
+      });
+    });
+    gsap.utils.toArray(".stockTrack2").forEach((stockTrack) => {
+      tl.to(stockTrack, {
+        scrollTrigger: {
+          trigger: stockTrack,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".stockImg", {
+      scrollTrigger: {
+        trigger: ".stockImg",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".trading").forEach((trading) => {
+      tl.to(trading, {
+        scrollTrigger: {
+          trigger: trading,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+       tl.to(".customerHeading", {
+      scrollTrigger: {
+        trigger: ".customerHeading",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      // delay: 1,
+      duration: 1,
+    });
+
+    tl.to(".customerPara", {
+      scrollTrigger: {
+        trigger: ".customerPara",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      delay: 1,
+      opacity: 1,
+      duration: 1,
+    });
+
+    tl.to(".mobileReview", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileReview",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSelect", {
+      y: "0%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSelect",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSlider", {
+      y: "50%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSlider",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileBtn", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileBtn",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: 1.5,
+      },
+    });
+    tl.to(".Subscribe", {
+      y: 0,
+      opacity: 1,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".Subscribe",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: 1.5,
+      },
+    });
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -109,9 +337,13 @@ const StockTrading = () => {
       <div className="w-full ">
         <div className="w-full h-96 "></div>
         <div className="w-full h-20 mt-20 relative flex items-center justify-center">
-          <h1 className="text-6xl font-bold">
-            What is <span className="text-[#33BC24]">Stock Trading</span>
-          </h1>
+          <div className="row">
+            <div className="col-12 text-center">
+              <h1 className="animatedText text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                What is <span className="text-[#33BC24]">Stock Trading</span>
+              </h1>
+            </div>
+          </div>
           <svg
             className=" absolute left-[64%] top-[-68%]  text-green-400"
             width="117"
@@ -129,7 +361,7 @@ const StockTrading = () => {
           </svg>
         </div>
         <div className="w-full h-[55vh] px-30 overflow-hidden  flex justify-between mt-10">
-          <div className="w-1/2 h-full  pl-25">
+          <div className="mutualImg scale-[0.7] opacity-0 w-1/2 h-full  pl-25">
             <div className="w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
@@ -138,7 +370,7 @@ const StockTrading = () => {
               />
             </div>
           </div>
-          <div className="w-[45%] h-full  p-10 text-xl">
+          <div className="mutualPara translate-y-[25%] opacity-0 w-[45%] h-full  p-10 text-xl">
             <p>
               Stock trading involves buying and selling shares of publicly
               listed companies on a stock exchange, with the goal of profiting
@@ -161,7 +393,7 @@ const StockTrading = () => {
           </div>
         </div>
         <div className="w-full pb-10">
-          <div className="text-center pt-20 flex flex-col items-center justify-center">
+          <div className="typesStock opacity-0 text-center pt-20 flex flex-col items-center justify-center">
             <h1 className="text-5xl font-bold">
               Types of Stock Trading Services
             </h1>
@@ -171,9 +403,9 @@ const StockTrading = () => {
               different investment styles and preferences:
             </p>
           </div>
-          <div className="w-full h-[90vh] py-10 ">
+          <div className="w-full h-[90vh] py-10 overflow-hidden">
             <div className="w-full h-[35vh] my-15 flex gap-10 justify-between px-40">
-              <div className="w-1/2  h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="stockTypesDiv w-1/2  h-full translate-x-[-60%]  opacity-0 rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/stock2.png" alt="" />
                 <h2 className="text-xl font-medium my-4">Intraday Trading</h2>
                 <p>
@@ -181,7 +413,7 @@ const StockTrading = () => {
                   Requires active monitoring and quick decision-making.
                 </p>
               </div>
-              <div className="w-1/2  h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="stockTypesDiv w-1/2  h-full translate-y-[-40%] opacity-0  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/stock3.png" alt="" />
                 <h2 className="text-xl font-medium my-4">Equity Trading</h2>
                 <p>
@@ -190,7 +422,7 @@ const StockTrading = () => {
                   wealth creation.
                 </p>
               </div>
-              <div className="w-1/2 h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="stockTypesDiv w-1/2 h-full translate-x-[60%] opacity-0  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/stock4.png" alt="" />
                 <h2 className="text-xl font-medium my-4">
                   Delivery-based Trading – Long Term Investments
@@ -202,7 +434,7 @@ const StockTrading = () => {
               </div>
             </div>
             <div className="w-full h-[35vh] flex gap-10 justify-between px-40">
-              <div className="w-1/2 h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="stockTypesDiv w-1/2 h-full translate-x-[-60%] opacity-0  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/stock5.png" alt="" />
                 <h2 className="text-xl font-medium my-4">Derivative Trading</h2>
                 <p>
@@ -211,7 +443,7 @@ const StockTrading = () => {
                   management.
                 </p>
               </div>
-              <div className="w-1/2 h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="stockTypesDiv w-1/2 h-full translate-y-[40%]  opacity-0 rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/stock6.png" alt="" />
                 <h2 className="text-xl font-medium my-4">
                   ETFs and Index Investments
@@ -221,7 +453,7 @@ const StockTrading = () => {
                   Achieve diversification with low costs and minimal hassle.
                 </p>
               </div>
-              <div className="w-1/2 h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="stockTypesDiv w-1/2 h-full  translate-x-[60%] opacity-0 rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/stock7.png" alt="" />
                 <h2 className="text-xl font-medium my-4">IPO & FPO Services</h2>
                 <p>
@@ -237,12 +469,14 @@ const StockTrading = () => {
         <div className="w-full min-h-[100vh] pt-10">
           <div className="w-full min-h-[100vh] py-20 transition-all ease-linear  border-t border-white/30  shadow-[0_8px_15px_-5px_rgba(255,255,255,0.25)] rounded-t-[50%] overflow-hidden pt-25">
             <div className="w-full h-[35vh] flex flex-col items-center gap-8 justify-end text-center relative">
-              <h1 className="text-7xl font-medium w-[40%] leading-[1.2]">
-                Why Choose Our Stock
-                <span className="text-[#33BC24]"> Trading Services</span>
-              </h1>
+              <div className="overflow-hidden w-[50%]">
+                <h1 className="chooseStock text-7xl translate-y-[100%] opacity-0 font-medium  leading-[1.2]">
+                  Why Choose Our Stock
+                  <span className="text-[#33BC24]"> Trading Services</span>
+                </h1>
+              </div>
               <svg
-                className=" absolute left-[67%] top-[26%]  text-green-400"
+                className=" absolute left-[69%] top-[26%]  text-green-400"
                 width="117"
                 height="117"
                 viewBox="0 0 117 117"
@@ -259,7 +493,7 @@ const StockTrading = () => {
             </div>
             <div className="relative w-full h-[70vh] flex px-[4vw] py-30 gap-20 items-center justify-center">
               <div className="w-[40%] h-full p-4 pr-5 text-2xl font-medium">
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="stockTrack translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -271,7 +505,7 @@ const StockTrading = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="stockTrack2 translate-x-[50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -283,7 +517,7 @@ const StockTrading = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="stockTrack translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -295,7 +529,7 @@ const StockTrading = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="stockTrack2 translate-x-[50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -307,7 +541,7 @@ const StockTrading = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="stockTrack translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -320,7 +554,7 @@ const StockTrading = () => {
                   />
                 </div>
               </div>
-              <div className=" h-full">
+              <div className=" stockImg scale-[0.7] opacity-0 h-full">
                 <img className=" " src="/images/groups/mutual.png" alt="" />
               </div>
             </div>
@@ -330,7 +564,7 @@ const StockTrading = () => {
         <div className="w-full min-h-[100vh] relative">
           <div className="w-full min-h-[100vh] transition-all ease-linear border-b border-white/30  shadow-[0_8px_10px_-5px_rgba(255,255,255,0.25)] rounded-b-[50%] overflow-hidden pt-20 px-20">
             <div className=" pt-10 ">
-              <div className="w-full h-[30vh] relative bg-[#77777787] rounded-xl px-30 flex items-center justify-between">
+              <div className="trading translate-y-[-30%] opacity-0 w-full h-[30vh] relative bg-[#77777787] rounded-xl px-30 flex items-center justify-between">
                 <div>
                   <h1 className="text-5xl font-bold">
                     Start trading with Our Advanced Platform.
@@ -342,7 +576,7 @@ const StockTrading = () => {
                     Contact Us
                   </button>
                 </div>
-                <div className="absolute w-[60%] h-40 bottom-[-25%] left-[25%] flex items-center justify-between p-10 rounded-xl border border-white/30  shadow-[0_8px_15px_5px_rgba(255,255,255,0.25)] ">
+                <div className="trading translate-y-[40%] opacity-0 absolute w-[60%] h-40 bottom-[-25%] left-[25%] flex items-center justify-between p-10 rounded-xl border border-white/30  shadow-[0_8px_15px_5px_rgba(255,255,255,0.25)] ">
                   <h1 className="text-4xl font-bold">
                     Fix an
                     <span className="text-[#33BC24]"> Appointment</span> with us
@@ -353,19 +587,23 @@ const StockTrading = () => {
                 </div>
               </div>
               <div className="text-center pt-50">
-                <h1 className="text-5xl font-bold">
-                  <span className="text-[#33BC24]">Trusted</span> by over
-                </h1>
-                <h1 className="text-5xl font-bold text-yellow-400">
-                  25,000+ customers
-                </h1>
-                <p className="text-sm mt-5">
+                <div className="  overflow-hidden">
+                  <h1 className="customerHeading text-5xl translate-y-[100%] font-bold">
+                    <span className="text-[#33BC24]">Trusted</span> by over
+                  </h1>
+                </div>
+                <div className=" overflow-hidden">
+                  <h1 className="customerHeading text-5xl translate-y-[-110%]  font-bold text-yellow-400">
+                    25,000+ customers
+                  </h1>
+                </div>
+                <p className="customerPara text-sm mt-5 opacity-0">
                   Don’t take our word for it. Here’s what other people are
                   saying about us…
                 </p>
               </div>
-              <div className="w-full rounded-t-lg  px-3 text-sm flex justify-between pt-6">
-                <div className="w-70 h-18 px-2 py-2 bg-white rounded">
+              <div className="w-full rounded-t-lg overflow-hidden  px-3 text-sm flex justify-between pt-6">
+                <div className="mobileReview translate-y-[-150%] opacity-0 w-70 h-18 px-2 py-2 bg-white rounded">
                   <img src="/images/groups/trust.png" alt="" />
                   <p className="text-sm mt-2 text-black tracking-tight">
                     4.8 OUT OF 5 BASED ON 700+ REVIEWS
@@ -373,7 +611,7 @@ const StockTrading = () => {
                 </div>
                 <div className="">
                   <select
-                    className="px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer"
+                    className="mobileSelect px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] translate-y-[150%] opacity-0 transition-all duration-300 cursor-pointer"
                     id="city"
                     name="city"
                   >
@@ -393,7 +631,7 @@ const StockTrading = () => {
                 </div>
               </div>
               <div className="w-full mx-auto pb-10">
-                <div className="mt-20 ">
+                <div className="mobileSlider translate-y-[-50%] opacity-0 mt-20 ">
                   <Slider {...settings}>
                     {data.map((d, i) => (
                       <div
@@ -422,8 +660,8 @@ const StockTrading = () => {
                     ))}
                   </Slider>
                 </div>
-                <div className="text-center mt-15">
-                  <button className="px-6 py-4 rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
+                <div className="text-center mt-15 overflow-hidden">
+                  <button className="mobileBtn px-6 py-4 translate-y-[-100%] rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
                     View all Testimonials <i class="ri-arrow-right-s-line"></i>{" "}
                   </button>
                 </div>
@@ -431,7 +669,7 @@ const StockTrading = () => {
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className="absolute w-[70%] h-[20vh] border bottom-40 left-[15%] rounded-lg p-5 flex items-center">
+              <div className="Subscribe translate-y-[-50%] opacity-0 absolute w-[70%] h-[20vh] border bottom-40 left-[15%] rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">
@@ -473,4 +711,3 @@ const StockTrading = () => {
 };
 
 export default StockTrading;
-
