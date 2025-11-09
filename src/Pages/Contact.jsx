@@ -2,8 +2,29 @@ import React from "react";
 import AllPagesTopContent from "../components/AllPagesTopContent";
 import ContactForm from "../components/Contact/ContactForm";
 import Footer from "../components/Footer/Footer";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const Contact = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  useGSAP(() => {
+    gsap.utils.toArray(".contactBottom").forEach((section) => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -21,7 +42,7 @@ const Contact = () => {
         <div className="w-full min-h-[160vh] border-b border-white/30  shadow-[0_8px_10px_-5px_rgba(255,255,255,0.25)] rounded-b-[50%] overflow-hidden">
           <ContactForm />
 
-          <div className="w-full h-[30vh] bg-[#77777787] px-30 flex items-center justify-between">
+          <div className="contactBottom opacity-0 translate-y-[35%]  w-full h-[30vh] bg-[#77777787] px-30 flex items-center justify-between">
             <div>
               <h1 className="text-5xl font-bold">
                 Start on Platform from today.
@@ -40,7 +61,7 @@ const Contact = () => {
               </button>
             </div>
           </div>
-          <div className="w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+          <div className="contactBottom opacity-0 translate-y-[-40%] w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
             <div className="w-1/2">
               {" "}
               <h1 className="text-3xl font-bold">
@@ -71,7 +92,7 @@ const Contact = () => {
         </div>
       </div>
       <div className="w-full">
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

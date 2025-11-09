@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { MapPin, Phone, Mail, Upload } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const FloatingInput = ({ label, type = "text", value, onChange, name }) => {
   return (
@@ -72,10 +75,43 @@ const ContactForm = () => {
     setFileName(e.target.files[0] ? e.target.files[0].name : "No file chosen");
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".contactForm", {
+      scrollTrigger: {
+        trigger: ".contactForm",
+        start: "top 80%",
+        end: " top 40%",
+        scrub: true,
+      },
+      x: 0,
+      opacity: 1,
+      duration: 0.6,
+    });
+
+    gsap.utils.toArray(".contactAddress").forEach((Address) => {
+      tl.to(Address, {
+        scrollTrigger: {
+          trigger: Address,
+          start: "top 200%",
+          end: " top 40%",
+
+          scrub: true,
+        },
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+      });
+    });
+  });
+
   return (
     <div className="w-full min-h-[90vh] px-[10vw] py-[5vw] flex justify-between gap-10  text-white">
       {/* Left Form Section */}
-      <div className="w-[50%] backdrop-blur-xl bg-transparent border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-2xl p-10">
+      <div className="contactForm w-[50%] translate-x-[-70%] opacity-0 backdrop-blur-xl bg-transparent border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-2xl p-10">
         <p className="text-sm text-white/70 mb-6">
           <span className="italic font-semibold text-white">
             Please fill out the form below,
@@ -186,7 +222,7 @@ const ContactForm = () => {
 
       {/* Right Info Section */}
       <div className="w-[40%]  mt-25 flex flex-col gap-6">
-        <div className="flex gap-3 border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-5 rounded-xl">
+        <div className="contactAddress translate-x-[70%] opacity-0 flex gap-3 border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-5 rounded-xl">
           <div className="bg-white/20 p-7 rounded-xl flex items-center justify-center">
             <MapPin className="text-white" />
           </div>
@@ -197,14 +233,14 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <div className="flex gap-3 border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-5 rounded-xl">
+        <div className="contactAddress translate-x-[70%] opacity-0 flex gap-3 border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-5 rounded-xl">
           <div className="bg-white/20 p-7 rounded-xl flex items-center justify-center">
             <Phone className="text-white" />
           </div>
           <p className="text-xl mt-5 text-white/80">+91-9833 139 568</p>
         </div>
 
-        <div className="flex gap-3 border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-5 rounded-xl">
+        <div className="contactAddress translate-x-[70%] opacity-0 flex gap-3 border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-5 rounded-xl">
           <div className="bg-white/20 p-7 rounded-xl flex items-center justify-center">
             <Mail className="text-white" />
           </div>

@@ -1,6 +1,9 @@
 import React from "react";
 import AllPagesTopContent from "../components/AllPagesTopContent";
-import Footer from "../components/Footer/Footer"
+import Footer from "../components/Footer/Footer";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 const Insights = () => {
   const data = [
     {
@@ -80,6 +83,177 @@ const Insights = () => {
         "This week, global markets navigated heightened geopolitical tensions, shifting monetary policy cues, and mixed growth signals. Our weekly roundup examines equity swings, debt stress, and hotspot developments across global and…",
     },
   ];
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Blog
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".blogDiv", {
+      scrollTrigger: {
+        trigger: ".blogDiv",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".blogDiv2", {
+      scrollTrigger: {
+        trigger: ".blogDiv2",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+    });
+    tl.to(".blogCards", {
+      scrollTrigger: {
+        trigger: ".blogCards",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+ 
+  // Financial Awareness
+
+ useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".financialDiv", {
+      scrollTrigger: {
+        trigger: ".financialDiv",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".financialDiv2", {
+      scrollTrigger: {
+        trigger: ".financialDiv2",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".financialCards", {
+      scrollTrigger: {
+        trigger: ".financialCards",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
+  // Market Analysis
+
+   useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".marketDiv", {
+      scrollTrigger: {
+        trigger: ".marketDiv",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".marketDiv2", {
+      scrollTrigger: {
+        trigger: ".marketDiv2",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".marketCards", {
+      scrollTrigger: {
+        trigger: ".marketCards",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
+  // Webinars & Podcasts
+   useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".podcastsDiv", {
+      scrollTrigger: {
+        trigger: ".podcastsDiv",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".podcastsDiv2", {
+      scrollTrigger: {
+        trigger: ".podcastsDiv2",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".podcastsCards", {
+      scrollTrigger: {
+        trigger: ".podcastsCards",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".podcastsSubscribe", {
+      scrollTrigger: {
+        trigger: ".podcastsSubscribe",
+        start: "top 70%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -94,7 +268,7 @@ const Insights = () => {
         homeVideo="/videos/video6.mp4"
       />
       <div className="w-full h-[80vh]  flex items-end px-30">
-        <div className="w-1/2 h-[65%]  p-10 flex flex-col justify-center ">
+        <div className="blogDiv opacity-0 w-1/2 h-[65%]  p-10 flex flex-col justify-center ">
           <h1 className="text-5xl font-bold">Blog</h1>
           <p className="text-xl my-6">
             Dive into our latest blogs and articles for expert tips, market
@@ -110,7 +284,7 @@ const Insights = () => {
             </button>
           </div>
         </div>
-        <div className="w-1/2 h-[65%] p-10">
+        <div className="blogDiv2 scale-[0.7] opacity-0 w-1/2 h-[65%] p-10">
           <div className="w-full h-full  overflow-hidden rounded-3xl border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
             <img
               className="w-full h-full object-cover"
@@ -120,7 +294,7 @@ const Insights = () => {
           </div>
         </div>
       </div>
-      <div className="w-full pt-20  px-30  flex flex-col items-center justify-between">
+      <div className="blogCards translate-y-[-18%] opacity-0 w-full pt-20  px-30  flex flex-col items-center justify-between">
         <div className="flex gap-20">
           {data.map((d, i) => {
             return (
@@ -152,7 +326,7 @@ const Insights = () => {
       </div>
       <div className="w-full min-h-[100vh] flex flex-col items-center py-20  px-30">
         <div className=" w-full h-[55vh]  flex">
-          <div className="w-1/2 full p-10">
+          <div className="financialDiv scale-[0.7] opacity-0 w-1/2 full p-10">
             <div className="w-full h-full  overflow-hidden rounded-3xl border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
@@ -161,7 +335,7 @@ const Insights = () => {
               />
             </div>
           </div>
-          <div className="w-1/2 h-full  p-10 flex flex-col justify-center ">
+          <div className="financialDiv2 opacity-0 w-1/2 h-full  p-10 flex flex-col justify-center ">
             <h1 className="text-5xl font-bold">Financial Awareness</h1>
             <p className="text-xl my-6 w-[80%]">
               Empower your financial journey with our educational resources and
@@ -177,7 +351,7 @@ const Insights = () => {
             </div>
           </div>
         </div>
-        <div className="flex mt-15 gap-20">
+        <div className="financialCards translate-y-[-18%] opacity-0 flex mt-15 gap-20">
           {data2.map((d, i) => {
             return (
               <div
@@ -209,7 +383,7 @@ const Insights = () => {
 
       <div className="w-full min-h-[100vh] flex flex-col items-center py-20  px-30">
         <div className=" w-full h-[55vh]  flex">
-          <div className="w-1/2 h-full  p-10 flex flex-col justify-center ">
+          <div className="marketDiv opacity-0 w-1/2 h-full  p-10 flex flex-col justify-center ">
             <h1 className="text-5xl font-bold">Market Analysis</h1>
             <p className="text-xl my-6 w-[80%]">
               In-depth research, data-driven insights, and actionable
@@ -224,7 +398,7 @@ const Insights = () => {
               </button>
             </div>
           </div>
-          <div className="w-1/2 full p-10">
+          <div className="marketDiv2 scale-[0.7] opacity-0 w-1/2 full p-10">
             <div className="w-full h-full  overflow-hidden rounded-3xl border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
@@ -234,7 +408,7 @@ const Insights = () => {
             </div>
           </div>
         </div>
-        <div className="flex mt-15 gap-20">
+        <div className="marketCards translate-y-[-18%] opacity-0 flex mt-15 gap-20">
           {data3.map((d, i) => {
             return (
               <div
@@ -266,7 +440,7 @@ const Insights = () => {
       <div className="w-full min-h-[170vh] ">
         <div className="w-full min-h-[170vh] rounded-b-[50%]  flex flex-col items-center  px-30 border-b border-white/30  shadow-[0_8px_10px_-5px_rgba(255,255,255,0.25)]">
           <div className=" w-full h-[55vh]  flex">
-            <div className="w-1/2 full p-10">
+            <div className="podcastsDiv scale-[0.7] opacity-0 w-1/2 full p-10">
               <div className="w-full h-full  overflow-hidden rounded-3xl border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -275,7 +449,7 @@ const Insights = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 h-full  p-10 flex flex-col justify-center ">
+            <div className="podcastsDiv2 opacity-0 w-1/2 h-full  p-10 flex flex-col justify-center ">
               <h1 className="text-5xl font-bold">Webinars & Podcasts</h1>
               <p className="text-xl my-6 w-[80%]">
                 Learn from the experts with our curated selection of webinars
@@ -291,7 +465,7 @@ const Insights = () => {
               </div>
             </div>
           </div>
-          <div className="flex mt-15 gap-20">
+          <div className="podcastsCards translate-y-[-18%] opacity-0 flex mt-15 gap-20">
             {data3.map((d, i) => {
               return (
                 <div
@@ -320,7 +494,7 @@ const Insights = () => {
             <i class="ri-sun-line"></i> View More
           </button>
           <div className="w-full h-[45vh]">
-            <div className=" w-[70%] h-[20vh] border mx-60 mt-20 rounded-lg p-5 flex items-center">
+            <div className="podcastsSubscribe translate-y-[-35%] opacity-0 w-[70%] h-[20vh] border mx-60 mt-20 rounded-lg p-5 flex items-center">
               <div className="w-1/2">
                 {" "}
                 <h1 className="text-3xl font-bold">
@@ -352,7 +526,7 @@ const Insights = () => {
         </div>
       </div>
       <div className="w-full">
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
