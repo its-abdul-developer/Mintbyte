@@ -4,6 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "../Footer/Footer";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const MutualFund = () => {
   const data = [
@@ -100,6 +103,297 @@ const MutualFund = () => {
     slidesToScroll: 1,
   };
 
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+
+    const tl = gsap.timeline();
+    tl.to(".mutualImg", {
+      scrollTrigger: {
+        trigger: ".mutualImg",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".mutualPara", {
+      scrollTrigger: {
+        trigger: ".mutualPara",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".collectionHeading", {
+      scrollTrigger: {
+        trigger: ".collectionHeading",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".collectionPara", {
+      scrollTrigger: {
+        trigger: ".collectionPara",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".collectionCards", {
+      scrollTrigger: {
+        trigger: ".collectionCards",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".bestMutual", {
+      scrollTrigger: {
+        trigger: ".bestMutual",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".bestPara", {
+      scrollTrigger: {
+        trigger: ".bestPara",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".buttons", {
+      scrollTrigger: {
+        trigger: ".buttons",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 1,
+    });
+  });
+
+  // Advantages
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.to(".advantageHeading", {
+      scrollTrigger: {
+        trigger: ".advantageHeading",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".advantageTrack").forEach((track) => {
+      tl.to(track, {
+        scrollTrigger: {
+          trigger: track,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+    gsap.utils.toArray(".advantageTrack2").forEach((track) => {
+      tl.to(track, {
+        scrollTrigger: {
+          trigger: track,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: "50%",
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".advantageImg", {
+      scrollTrigger: {
+        trigger: ".advantageImg",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".typesMutual", {
+      scrollTrigger: {
+        trigger: ".typesMutual",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".typesDiv").forEach((typesDiv) => {
+      tl.to(typesDiv, {
+        scrollTrigger: {
+          trigger: typesDiv,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".platform", {
+      scrollTrigger: {
+        trigger: ".platform",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+
+    tl.to(".customerHeading", {
+      scrollTrigger: {
+        trigger: ".customerHeading",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      // delay: 1,
+      duration: 1,
+    });
+
+    tl.to(".customerPara", {
+      scrollTrigger: {
+        trigger: ".customerPara",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      delay: 1,
+      opacity: 1,
+      duration: 1,
+    });
+
+    tl.to(".mobileReview", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileReview",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSelect", {
+      y: "0%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSelect",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSlider", {
+      y: "50%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSlider",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileBtn", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileBtn",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: 1.5,
+      },
+    });
+    tl.to(".Subscribe", {
+      y: 0,
+      opacity: 1,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".Subscribe",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: 1.5,
+      },
+    });
+
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -117,9 +411,14 @@ const MutualFund = () => {
       <div className="w-full ">
         <div className="w-full h-96 "></div>
         <div className="w-full h-20 mt-20 relative flex items-center justify-center">
-          <h1 className="text-6xl font-bold">
-            What is <span className="text-[#33BC24]">Mutual Fund</span>
-          </h1>
+          <div className="row">
+            <div className="col-12 text-center">
+              <h1 className="animatedText text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                What is <span className="text-[#33BC24]">Mutual Fund</span>
+              </h1>
+            </div>
+          </div>
+
           <svg
             className=" absolute left-[63%] top-[-68%]  text-green-400"
             width="117"
@@ -137,7 +436,7 @@ const MutualFund = () => {
           </svg>
         </div>
         <div className="w-full h-[55vh] px-30 overflow-hidden  flex justify-between mt-10">
-          <div className="w-1/2 h-full  pl-25">
+          <div className="mutualImg scale-[0.7] opacity-0 w-1/2 h-full  pl-25">
             <div className="w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
@@ -146,7 +445,7 @@ const MutualFund = () => {
               />
             </div>
           </div>
-          <div className="w-[45%] h-full  p-10 text-xl">
+          <div className="mutualPara translate-y-[25%] opacity-0 w-[45%] h-full  p-10 text-xl">
             <p>
               A mutual fund is simply a financial intermediary that allows a
               group of investors to pool their money together with a
@@ -170,16 +469,20 @@ const MutualFund = () => {
         </div>
         <div className="w-full h-20  flex items-center justify-center mt-40">
           <div className="flex flex-col items-center gap-6">
-            <h1 className="text-6xl font-bold w-[60%] text-center">
-              <span className="text-[#33BC24]">A mutual fund </span> is nothing
-              more than a collection of stocks & bonds
-            </h1>
-            <p className="text-lg">
-              You can make money from a mutual fund in three ways:
-            </p>
+            <div className="overflow-hidden w-[60%]">
+              <h1 className="collectionHeading text-6xl font-bold translate-y-[100%] opacity-0 text-center">
+                <span className="text-[#33BC24]">A mutual fund </span> is
+                nothing more than a collection of stocks & bonds
+              </h1>
+            </div>
+            <div className=" overflow-hidden">
+              <p className="collectionPara translate-y-[100%] opacity-0 text-lg">
+                You can make money from a mutual fund in three ways:
+              </p>
+            </div>
           </div>
         </div>
-        <div className="w-full h-[40vh] px-30 mt-20  flex gap-10">
+        <div className="collectionCards translate-y-[35%] opacity-0 w-full h-[40vh] px-30 mt-20  flex gap-10">
           <div className="w-1/2 h-full rounded-xl flex flex-col items-center justify-center gap-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
             <div className="w-20 h-20 rounded-xl bg-black flex items-center justify-center">
               <img src="/images/groups/tick.png" alt="" />
@@ -214,13 +517,15 @@ const MutualFund = () => {
 
         <div className="w-full min-h-[100vh] pt-35">
           <div className="w-full pb-30 pt-15">
-            <div className="w-full h-22 flex flex-col items-center justify-center text-center relative">
-              <h1 className="text-6xl font-bold w-[40%] mb-5">
-                Discover the <span className="text-[#33BC24]">best mutual</span>{" "}
-                Fund tools
-              </h1>
+            <div className="w-full  flex flex-col items-center justify-center text-center relative">
+              <div className=" overflow-hidden mb-5 w-[40%]">
+                <h1 className="bestMutual text-6xl font-bold translate-y-[100%] opacity-0">
+                  Discover the{" "}
+                  <span className="text-[#33BC24]">best mutual</span> Fund tools
+                </h1>
+              </div>
               <svg
-                className=" absolute left-[66%] top-[-130%]  text-green-400"
+                className=" absolute left-[67%] top-[-50%]  text-green-400"
                 width="117"
                 height="117"
                 viewBox="0 0 117 117"
@@ -234,12 +539,14 @@ const MutualFund = () => {
                   />
                 </g>
               </svg>
-              <p>
-                Your go-to resource for mutual fund research and analysis to
-                optimize your financial growth.
-              </p>
+              <div className="overflow-hidden">
+                <p className="bestPara translate-y-[100%] opacity-0">
+                  Your go-to resource for mutual fund research and analysis to
+                  optimize your financial growth.
+                </p>
+              </div>
             </div>
-            <div className="w-full  mt-20 flex flex-col leading-0 ">
+            <div className="buttons opacity-0 w-full  mt-20 flex flex-col leading-0 ">
               <div className="w-full h-22 px-30 text-center">
                 <button className="px-8 py-[3vh] rounded-[50px] border text-white hover:bg-[#0C1C15]  transition-all duration-300 cursor-pointer">
                   SIP Calculator
@@ -278,12 +585,14 @@ const MutualFund = () => {
           </div>
           <div className="w-full min-h-[100vh] transition-all ease-linear hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)] border-t border-white/30  shadow-[0_8px_10px_-5px_rgba(255,255,255,0.25)] rounded-t-[50%] overflow-hidden">
             <div className="w-full h-[35vh] flex flex-col items-center gap-8 justify-end text-center relative">
-              <h1 className="text-7xl font-medium w-[40%] leading-[1.2]">
-                <span className="text-[#33BC24]">Advantages</span> of Mutual
-                Fund
-              </h1>
+              <div className="overflow-hidden w-[40%]">
+                <h1 className="advantageHeading text-7xl font-medium translate-y-[100%] opacity-0 leading-[1.2]">
+                  <span className="text-[#33BC24]">Advantages</span> of Mutual
+                  Fund
+                </h1>
+              </div>
               <svg
-                className=" absolute left-[67%] top-[26%]  text-green-400"
+                className=" absolute left-[61%] top-[26%]  text-green-400"
                 width="117"
                 height="117"
                 viewBox="0 0 117 117"
@@ -300,7 +609,7 @@ const MutualFund = () => {
             </div>
             <div className="relative w-full h-[70vh] flex px-[4vw] pt-30 gap-20 items-center justify-center">
               <div className="w-[40%] h-full p-4 pr-5 text-2xl font-medium">
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="advantageTrack  translate-x-[50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -312,7 +621,7 @@ const MutualFund = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className=" advantageTrack2 translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -324,7 +633,7 @@ const MutualFund = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="advantageTrack  translate-x-[50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -336,7 +645,7 @@ const MutualFund = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className=" advantageTrack2 translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -348,7 +657,7 @@ const MutualFund = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="advantageTrack  translate-x-[50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -361,12 +670,12 @@ const MutualFund = () => {
                   />
                 </div>
               </div>
-              <div className=" h-full flex items-center justify-end">
+              <div className="advantageImg scale-[0.7] opacity-0 h-full flex items-center justify-end">
                 <img className=" " src="/images/groups/mutual.png" alt="" />
               </div>
             </div>
             <div className="w-full pb-10">
-              <div className="text-center pt-20">
+              <div className="typesMutual opacity-0 overflow-hidden text-center pt-20 h-fit">
                 <h1 className="text-5xl font-bold">Types of Mutual Funds</h1>
 
                 <p className="text-sm mt-5">
@@ -376,7 +685,7 @@ const MutualFund = () => {
               </div>
               <div className="w-full h-[90vh] py-10 ">
                 <div className="w-full h-[35vh] my-15 flex gap-10 justify-between px-40">
-                  <div className="w-[35%] h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                  <div className="typesDiv opacity-0 w-[35%] h-full  translate-x-[-70%] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                     <img
                       className="h-18"
                       src="/images/groups/mutual3.png"
@@ -392,7 +701,7 @@ const MutualFund = () => {
                       professional management and market expertise.
                     </p>
                   </div>
-                  <div className="w-[65%] h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                  <div className="typesDiv opacity-0 w-[65%] h-full  translate-x-[70%] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                     <img
                       className="h-18"
                       src="/images/groups/mutual4.png"
@@ -410,7 +719,7 @@ const MutualFund = () => {
                   </div>
                 </div>
                 <div className="w-full h-[35vh] flex gap-10 justify-between px-40">
-                  <div className="w-[33%] h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                  <div className="typesDiv opacity-0 w-[33%] h-full  translate-x-[-70%] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                     <img
                       className="h-18"
                       src="/images/groups/mutual5.png"
@@ -425,7 +734,7 @@ const MutualFund = () => {
                       higher returns than pure debt funds.
                     </p>
                   </div>
-                  <div className="w-[33%] h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                  <div className="typesDiv opacity-0 w-[33%] h-full translate-y-[60%]  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                     <img
                       className="h-18"
                       src="/images/groups/mutual6.png"
@@ -441,7 +750,7 @@ const MutualFund = () => {
                       your values and beliefs.
                     </p>
                   </div>
-                  <div className="w-[33%] h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                  <div className="typesDiv opacity-0 w-[33%] h-full  translate-x-[70%] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                     <img
                       className="h-18"
                       src="/images/groups/mutual7.png"
@@ -468,7 +777,7 @@ const MutualFund = () => {
         <div className="w-full min-h-[100vh] relative">
           <div className="w-full min-h-[100vh] transition-all ease-linear hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)] border-b border-white/30  shadow-[0_8px_10px_-5px_rgba(255,255,255,0.25)] rounded-b-[50%] overflow-hidden px-20">
             <div className=" pt-10 ">
-              <div className="w-full h-[30vh] bg-[#77777787] rounded-xl px-30 flex items-center justify-between">
+              <div className="platform translate-y-[30%] opacity-0 w-full h-[30vh] bg-[#77777787] rounded-xl px-30 flex items-center justify-between">
                 <div>
                   <h1 className="text-5xl font-bold">
                     Start on Platform from today.
@@ -487,20 +796,26 @@ const MutualFund = () => {
                   </button>
                 </div>
               </div>
-              <div className="text-center pt-20">
-                <h1 className="text-5xl font-bold">
-                  <span className="text-[#33BC24]">Trusted</span> by over
-                </h1>
-                <h1 className="text-5xl font-bold text-yellow-400">
-                  25,000+ customers
-                </h1>
-                <p className="text-sm mt-5">
-                  Don’t take our word for it. Here’s what other people are
-                  saying about us…
-                </p>
+              <div className="w-full pb-10">
+                <div className="text-center pt-20">
+                  <div className="  overflow-hidden">
+                    <h1 className="customerHeading text-5xl translate-y-[100%] font-bold">
+                      <span className="text-[#33BC24]">Trusted</span> by over
+                    </h1>
+                  </div>
+                  <div className=" overflow-hidden">
+                    <h1 className="customerHeading text-5xl translate-y-[-110%]  font-bold text-yellow-400">
+                      25,000+ customers
+                    </h1>
+                  </div>
+                  <p className="customerPara text-sm mt-5 opacity-0">
+                    Don’t take our word for it. Here’s what other people are
+                    saying about us…
+                  </p>
+                </div>
               </div>
-              <div className="w-full rounded-t-lg  px-3 text-sm flex justify-between pt-6">
-                <div className="w-70 h-18 px-2 py-2 bg-white rounded">
+              <div className="w-full rounded-t-lg overflow-hidden  px-3 text-sm flex justify-between pt-6">
+                <div className="mobileReview translate-y-[-150%] opacity-0 w-70 h-18 px-2 py-2 bg-white rounded">
                   <img src="/images/groups/trust.png" alt="" />
                   <p className="text-sm mt-2 text-black tracking-tight">
                     4.8 OUT OF 5 BASED ON 700+ REVIEWS
@@ -508,7 +823,7 @@ const MutualFund = () => {
                 </div>
                 <div className="">
                   <select
-                    className="px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer"
+                    className="mobileSelect px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] translate-y-[150%] opacity-0 transition-all duration-300 cursor-pointer"
                     id="city"
                     name="city"
                   >
@@ -528,7 +843,7 @@ const MutualFund = () => {
                 </div>
               </div>
               <div className="w-full mx-auto pb-10">
-                <div className="mt-20 ">
+                <div className="mobileSlider translate-y-[-50%] opacity-0 mt-20 ">
                   <Slider {...settings}>
                     {data.map((d, i) => (
                       <div
@@ -557,8 +872,8 @@ const MutualFund = () => {
                     ))}
                   </Slider>
                 </div>
-                <div className="text-center mt-15">
-                  <button className="px-6 py-4 rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
+                <div className="text-center mt-15 overflow-hidden">
+                  <button className="mobileBtn px-6 py-4 translate-y-[-100%] rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
                     View all Testimonials <i class="ri-arrow-right-s-line"></i>{" "}
                   </button>
                 </div>
@@ -566,7 +881,7 @@ const MutualFund = () => {
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className="absolute w-[70%] h-[20vh] border bottom-40 left-[15%] rounded-lg p-5 flex items-center">
+              <div className="Subscribe translate-y-[-50%] opacity-0 absolute w-[70%] h-[20vh] border bottom-40 left-[15%] rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">
@@ -606,5 +921,4 @@ const MutualFund = () => {
     </>
   );
 };
-
 export default MutualFund;
