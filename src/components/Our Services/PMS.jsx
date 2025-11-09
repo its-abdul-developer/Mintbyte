@@ -1,7 +1,151 @@
 import React from "react";
 import AllPagesTopContent from "../AllPagesTopContent";
 import Footer from "../Footer/Footer";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const PMS = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+
+    const tl = gsap.timeline();
+    tl.to(".mutualImg", {
+      scrollTrigger: {
+        trigger: ".mutualImg",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".mutualPara", {
+      scrollTrigger: {
+        trigger: ".mutualPara",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".pmsOfferings", {
+      scrollTrigger: {
+        trigger: ".pmsOfferings",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".pmsOfferingsDiv").forEach((pmsDiv) => {
+      tl.to(pmsDiv, {
+        scrollTrigger: {
+          trigger: pmsDiv,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+        y: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".pmsContact", {
+      scrollTrigger: {
+        trigger: ".pmsContact",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".whyChoose", {
+      scrollTrigger: {
+        trigger: ".whyChoose",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".pmsTrack").forEach((pmsTrack) => {
+      tl.to(pmsTrack, {
+        scrollTrigger: {
+          trigger: pmsTrack,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: "50%",
+        opacity: 1,
+        duration: 2,
+      });
+    });
+    gsap.utils.toArray(".pmsTrack2").forEach((pmsTrack) => {
+      tl.to(pmsTrack, {
+        scrollTrigger: {
+          trigger: pmsTrack,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".pmsTrackImg", {
+      scrollTrigger: {
+        trigger: ".pmsTrackImg",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale:1,
+      opacity:1,
+      duration:2,
+    });
+      tl.to(".Subscribe", {
+      y: 0,
+      opacity: 1,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".Subscribe",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: 1.5,
+      },
+    });
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -19,9 +163,13 @@ const PMS = () => {
       <div className="w-full ">
         <div className="w-full h-96 "></div>
         <div className="w-full h-20 mt-20 relative flex items-center justify-center">
-          <h1 className="text-6xl font-bold">
-            About <span className="text-[#33BC24]">PMS</span>
-          </h1>
+          <div className="row">
+            <div className="col-12 text-center">
+              <h1 className="animatedText text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                About <span className="text-[#33BC24]">PMS</span>
+              </h1>
+            </div>
+          </div>
           <svg
             className=" absolute left-[57%] top-[-100%]  text-green-400"
             width="117"
@@ -39,7 +187,7 @@ const PMS = () => {
           </svg>
         </div>
         <div className="w-full h-[55vh] px-30 overflow-hidden  flex justify-between mt-10">
-          <div className="w-1/2 h-full  pl-25">
+          <div className="mutualImg scale-[0.7] opacity-0 w-1/2 h-full  pl-25">
             <div className="w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
@@ -48,7 +196,7 @@ const PMS = () => {
               />
             </div>
           </div>
-          <div className="w-[45%] h-full  p-10 text-xl">
+          <div className="mutualPara translate-y-[25%] opacity-0 w-[45%] h-full  p-10 text-xl">
             <p className="my-10">
               A Portfolio Management Service (PMS) is a professional investment
               management service where a dedicated portfolio manager handles an
@@ -65,7 +213,7 @@ const PMS = () => {
           </div>
         </div>
         <div className="w-full pb-10">
-          <div className="text-center pt-20 flex flex-col items-center justify-center">
+          <div className="pmsOfferings opacity-0 text-center pt-20 flex flex-col items-center justify-center">
             <h1 className="text-5xl font-bold">Our PMS Offerings</h1>
 
             <p className="text-center w-[40%] mt-5">
@@ -74,9 +222,9 @@ const PMS = () => {
               appetite:
             </p>
           </div>
-          <div className="w-full min-h-[100vh] py-10 ">
-            <div className="w-full  my-15 flex gap-10 justify-between px-40">                                                     
-              <div className="w-1/2 leading-[1.8] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+          <div className="w-full min-h-[100vh] py-10 overflow-hidden">
+            <div className="w-full  my-15 flex gap-10 justify-between px-40">
+              <div className="pmsOfferingsDiv translate-x-[-60%] opacity-0 w-1/2 leading-[1.8] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-30" src="/images/groups/pms2.png" alt="" />
                 <h2 className="text-xl font-medium my-8">
                   Equity-Oriented PMS
@@ -87,14 +235,13 @@ const PMS = () => {
                 </p>
                 <p className="text-lg w-[85%]">
                   Strategies include investments in large-cap, mid-cap, and
-                  multi-cap companies.Targeting steady growth with diversified stock portfolios.
-                  Optimizing returns through careful selection of high-potential
-                  investments.
+                  multi-cap companies.Targeting steady growth with diversified
+                  stock portfolios. Optimizing returns through careful selection
+                  of high-potential investments.
                 </p>
-            
               </div>
               <div className="w-1/2 flex flex-col gap-10">
-                <div className="w-full  h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className="pmsOfferingsDiv translate-x-[60%] opacity-0 w-full  h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <img className="h-18" src="/images/groups/pms3.png" alt="" />
                   <h2 className="text-xl font-medium my-4">Fixed-Income PMS</h2>
                   <p className="text-lg w-[85%]">
@@ -104,7 +251,7 @@ const PMS = () => {
                     securities.
                   </p>
                 </div>
-                <div className="w-full h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className="pmsOfferingsDiv translate-x-[60%] opacity-0 w-full h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <img className="h-18" src="/images/groups/pms4.png" alt="" />
                   <h2 className="text-xl font-medium my-4">
                     Thematic and Sectoral Portfolios
@@ -118,7 +265,7 @@ const PMS = () => {
               </div>
             </div>
             <div className="w-full h-[30vh] flex gap-10 justify-between px-40">
-              <div className="w-1/2 h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="pmsOfferingsDiv opacity-0 w-1/2 h-full translate-x-[-60%]  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/pms5.png" alt="" />
                 <h2 className="text-xl font-medium my-4">Hybrid Portfolios</h2>
                 <p className="text-lg w-[90%]">
@@ -127,7 +274,7 @@ const PMS = () => {
                   and consistent returns.
                 </p>
               </div>
-              <div className="w-1/2 h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="pmsOfferingsDiv opacity-0 w-1/2 h-full translate-y-[40%]  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/pms6.png" alt="" />
                 <h2 className="text-xl font-medium my-4">Value-oriented PMS</h2>
                 <p className="text-lg w-[85%]">
@@ -135,7 +282,7 @@ const PMS = () => {
                   long-term appreciation.
                 </p>
               </div>
-              <div className="w-1/2 h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="pmsOfferingsDiv opacity-0 w-1/2 h-full translate-x-[60%]  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img className="h-18" src="/images/groups/pms7.png" alt="" />
                 <h2 className="text-xl font-medium my-4">
                   Growth-Oriented PMS
@@ -148,7 +295,7 @@ const PMS = () => {
             </div>
             <div className="w-full    my-15 flex gap-10 justify-between px-40">
               <div className="  flex flex-col gap-10">
-                <div className="w-full  h-full rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className="pmsOfferingsDiv opacity-0 w-full  h-full translate-x-[-60%] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <img className="h-18" src="/images/groups/pms8.png" alt="" />
                   <h2 className="text-xl font-medium my-4">
                     Dividend Yield Portfolios
@@ -158,7 +305,7 @@ const PMS = () => {
                     attractive dividends.
                   </p>
                 </div>
-                <div className="w-full h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className="pmsOfferingsDiv opacity-0 w-full h-full translate-x-[-60%]  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <img className="h-18" src="/images/groups/pms9.png" alt="" />
                   <h2 className="text-xl font-medium my-4">
                     Multi-Asset Portfolios
@@ -170,7 +317,7 @@ const PMS = () => {
                 </div>
               </div>
               <div className="w-1/2 flex flex-col gap-10">
-                <div className="w-full  h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className="pmsOfferingsDiv opacity-0 w-full  h-full  translate-x-[60%] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <img className="h-18" src="/images/groups/pms10.png" alt="" />
                   <h2 className="text-xl font-medium my-4">
                     Lump sum Investment
@@ -180,7 +327,7 @@ const PMS = () => {
                     instruments all at once, as opposed to staggered.
                   </p>
                 </div>
-                <div className="w-full h-full  rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className="pmsOfferingsDiv opacity-0 w-full h-full  translate-x-[60%] rounded-2xl p-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <img className="h-18" src="/images/groups/pms11.png" alt="" />
                   <h2 className="text-xl font-medium my-4">
                     Custom-Built Portfolios
@@ -199,7 +346,7 @@ const PMS = () => {
 
         <div className="w-full min-h-[100vh] pt-20">
           <div className="w-full min-h-[170vh] py-20 transition-all ease-linear  border border-white/30  shadow-[0_8px_15px_-5px_rgba(255,255,255,0.25)] rounded-[50%]">
-            <div className="w-full h-[30vh] mt-[-8vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
+            <div className="pmsContact translate-y-[-50%] opacity-0 w-full h-[30vh] mt-[-8vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
               <div>
                 <h1 className="text-5xl font-bold">
                   Elevate your wealth with expert portfolio management.
@@ -214,13 +361,15 @@ const PMS = () => {
                 </button>
               </div>
             </div>
-            <div className="w-full h-[30vh] flex flex-col items-center gap-8 justify-end text-center relative">
-              <h1 className="text-7xl font-medium w-[35%] leading-[1.2]">
-                Why
-                <span className="text-[#33BC24]"> Choose PMS</span> with Us?
-              </h1>
+            <div className="w-full h-[30vh] flex flex-col items-center  justify-end text-center relative">
+              <div className="overflow-hidden w-[35%]">
+                <h1 className="whyChoose text-7xl font-medium translate-y-[100%] opacity-0 leading-[1.2]">
+                  Why
+                  <span className="text-[#33BC24]"> Choose PMS</span> with Us?
+                </h1>
+              </div>
               <svg
-                className=" absolute left-[63%] top-[25%]  text-green-400"
+                className=" absolute left-[65%] top-[10%]  text-green-400"
                 width="117"
                 height="117"
                 viewBox="0 0 117 117"
@@ -237,7 +386,7 @@ const PMS = () => {
             </div>
             <div className="relative w-full h-[70vh]  flex px-[4vw] py-30 gap-20 items-center justify-center">
               <div className="w-[40%] h-full p-4 pr-5 text-2xl font-medium">
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="pmsTrack translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -249,7 +398,7 @@ const PMS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="pmsTrack2 translate-x-[50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -261,7 +410,7 @@ const PMS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="pmsTrack translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -273,7 +422,7 @@ const PMS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="pmsTrack2 translate-x-[50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -285,7 +434,7 @@ const PMS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="pmsTrack translate-x-[-50%] opacity-0 flex items-center mb-4 gap-3 h-20 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -298,7 +447,7 @@ const PMS = () => {
                   />
                 </div>
               </div>
-              <div className="w-1/3 0 h-full mt-20">
+              <div className="pmsTrackImg scale-[0.7] opacity-0 w-1/3 0 h-full mt-20">
                 <img
                   className="h-full w-full "
                   src="/images/groups/pms12.png"
@@ -308,7 +457,7 @@ const PMS = () => {
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className=" absolute left-[15%] mt-40 w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
+              <div className="Subscribe translate-y-[-70%] opacity-0 absolute left-[15%] mt-40 w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">
