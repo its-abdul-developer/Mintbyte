@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { CalendarDays, ArrowUpRight } from "lucide-react";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const BlogSection = () => {
   const data = [
     {
@@ -345,11 +348,42 @@ const BlogSection = () => {
   // Correct pagination logic — exactly 6 cards per page
   const startIndex = (page - 1) * itemsPerPage;
   const displayedData = data.slice(startIndex, startIndex + itemsPerPage);
+
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  useGSAP(()=>{
+    gsap.to(".blogsCards", {
+      opacity:1,
+      delay:4.2,
+      duration:1.5,
+    })
+  })
+
+    
+  useGSAP(() => {
+    gsap.utils.toArray(".blogsBottom").forEach((section) => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
+  });
+
+
   return (
     <>
       <div className="w-full bg-[#090909] min-h-[100vh] ">
         <div className="w-full min-h-[100vh] overflow-hidden  rounded-b-[50%] pt-10 border-b border-white/30  shadow-[0_8px_10px_-5px_rgba(255,255,255,0.25)]  ">
-          <section className="w-full min-h-screen bg-[#090909] text-white pt-40 px-6 md:px-16">
+          <section className="blogsCards opacity-0 w-full min-h-screen bg-[#090909] text-white pt-40 px-6 md:px-16">
             <div className="px-[8vw]">
               {/* Cards */}
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
@@ -431,7 +465,7 @@ const BlogSection = () => {
             </div>
           </section>
           <div className="w-full h-[80vh] pt-20   ">
-            <div className="w-full h-[30vh] bg-[#77777787] px-30 flex items-center justify-between">
+            <div className="blogsBottom translate-y-[35%] opacity-0 w-full h-[30vh] bg-[#77777787] px-30 flex items-center justify-between">
               <div>
                 <h1 className="text-5xl font-bold">
                   Start on Platform from today.
@@ -450,7 +484,7 @@ const BlogSection = () => {
                 </button>
               </div>
             </div>
-            <div className="w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+            <div className="blogsBottom translate-y-[-40%] opacity-0 w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <div className="w-1/2">
                 {" "}
                 <h1 className="text-3xl font-bold">

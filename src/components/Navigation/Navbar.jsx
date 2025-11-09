@@ -650,12 +650,7 @@ useGSAP(()=>{
           >
             Blog
           </Link>
-          <Link
-            to="/insights/webinars-podcast"
-            className="px-1 py-2 block rounded-lg text-yellow-500 hover:text-[#00DD41] hover:bg-[#022E10] transition-all ease-linear duration-200 cursor-pointer"
-          >
-            Webinars and Podcasts
-          </Link>
+          
         </div>
       </div>
       <div
