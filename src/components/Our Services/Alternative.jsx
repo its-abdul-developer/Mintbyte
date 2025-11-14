@@ -1,7 +1,114 @@
 import React from "react";
 import AllPagesTopContent from "../AllPagesTopContent";
-import Footer from "../Footer/Footer"
+import Footer from "../Footer/Footer";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const Alternative = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+
+    gsap.from(".animatedText2", {
+      scrollTrigger: {
+        trigger: ".animatedText2",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+
+    const tl = gsap.timeline();
+
+    tl.to(".aifImgDIv", {
+      scrollTrigger: {
+        trigger: ".aifImgDIv",
+        start: "top 85%",
+        end: "top 50%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".aifPara", {
+      scrollTrigger: {
+        trigger: ".aifPara",
+        start: "top 85%",
+        end: "top 50%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".category", {
+      scrollTrigger: {
+        trigger: ".category",
+        start: "top 85%",
+        end: "top 50%",
+        scrub: true,
+      },
+
+      opacity: 1,
+      duration: 1,
+    });
+
+    gsap.utils.toArray(".categoryDiv").forEach((categories) => {
+      tl.to(categories, {
+        scrollTrigger: {
+          trigger: categories,
+          start: "top 85%",
+          end: "top 50%",
+          scrub: true,
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".invest", {
+      scrollTrigger: {
+        trigger: ".invest",
+        start: "top 85%",
+        end: "top 50%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".investPara", {
+      scrollTrigger: {
+        trigger: ".investPara",
+        start: "top 85%",
+        end: "top 50%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+  });
   return (
     <>
       <AllPagesTopContent
@@ -19,9 +126,13 @@ const Alternative = () => {
       <div className="w-full">
         <div className="w-full h-96 "></div>
         <div className="w-full h-20 mt-20 relative flex items-center justify-center">
-          <h1 className="text-6xl font-bold">
-            About <span className="text-[#33BC24]">AIF</span>
-          </h1>
+          <div className="row">
+            <div className="col-12 text-center">
+              <h1 className="animatedText text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                About <span className="text-[#33BC24]">AIF</span>
+              </h1>
+            </div>
+          </div>
           <svg
             className=" absolute left-[56%] top-[-100%]  text-green-400"
             width="117"
@@ -39,7 +150,7 @@ const Alternative = () => {
           </svg>
         </div>
         <div className="w-full h-[55vh] px-30 overflow-hidden  flex justify-between mt-10">
-          <div className="w-1/2 h-full  pl-25">
+          <div className="aifImgDIv scale-[0.7] opacity-0 w-1/2 h-full  pl-25">
             <div className="w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
@@ -48,7 +159,7 @@ const Alternative = () => {
               />
             </div>
           </div>
-          <div className="w-[45%] h-full  p-10 text-xl">
+          <div className="aifPara translate-y-[40%] opacity-0 w-[45%] h-full  p-10 text-xl">
             <h2 className="text-5xl font-medium">
               Your Gateway to High-Performance Investing
             </h2>
@@ -69,8 +180,8 @@ const Alternative = () => {
             </button>
           </div>
         </div>
-        <div className="w-full p-20">
-          <div className="text-center pt-20 flex flex-col items-center justify-center">
+        <div className="w-full p-20 overflow-hidden">
+          <div className="category opacity-0 text-center pt-20 flex flex-col items-center justify-center">
             <h1 className="text-5xl font-bold">Our AIFs Catogries</h1>
 
             <p className="text-center w-[40%] mt-5">
@@ -80,7 +191,7 @@ const Alternative = () => {
               Category III employs complex or risky strategies.
             </p>
           </div>
-          <div className="w-full border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-10 rounded-3xl mt-15">
+          <div className="categoryDiv translate-x-[-70%] opacity-0 w-full border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-10 rounded-3xl mt-15">
             <div className="flex items-center gap-8 mb-8">
               <h1 className="py-4 px-7 border-8 rounded-full w-fit font-bold text-6xl">
                 1
@@ -185,7 +296,7 @@ const Alternative = () => {
               </div>
             </div>
           </div>
-          <div className="w-full border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-10 rounded-3xl mt-15">
+          <div className="categoryDiv translate-x-[70%] opacity-0 w-full border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-10 rounded-3xl mt-15">
             <div className="flex items-center gap-8 mb-8">
               <h1 className="py-4 px-7 border-8 rounded-full w-fit font-bold text-6xl">
                 2
@@ -289,7 +400,7 @@ const Alternative = () => {
               </div>
             </div>
           </div>
-          <div className="w-full border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-10 rounded-3xl mt-15">
+          <div className="categoryDiv translate-x-[-70%] opacity-0 w-full border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] p-10 rounded-3xl mt-15">
             <div className="flex items-center gap-8 mb-8">
               <h1 className="py-4 px-7 border-8 rounded-full w-fit font-bold text-6xl">
                 3
@@ -387,24 +498,31 @@ const Alternative = () => {
             </div>
           </div>
         </div>
-        <div className="w-full min-h-[100vh] pt-20 text-center">
-          <div className="w-full min-h-[180vh] py-20 transition-all ease-linear  border border-white/30  shadow-[0_8px_15px_-5px_rgba(255,255,255,0.25)] rounded-[50%]">
+        <div className="w-full min-h-[100vh] pt-20 text-center ">
+          <div className="w-full min-h-[180vh] py-20 overflow-hidden  transition-all ease-linear  border border-white/30  shadow-[0_8px_15px_-5px_rgba(255,255,255,0.25)] rounded-[50%]">
             <div className="w-full pt-20 flex flex-col items-center gap-8 justify-end text-center relative">
-              <h1 className="text-7xl font-medium w-[35%] leading-[1.2]">
-                Who Should <span className="text-[#33BC24]">Invest?</span>
+              <div className="overflow-hidden w-[35%]">
+                <h1 className="invest text-7xl font-medium translate-y-[100%] opacity-0 leading-[1.2]">
+                  Who Should <span className="text-[#33BC24]">Invest?</span>
                 </h1>
-           
-              <p className="text-lg w-[40%]">
-                These funds are suitable for experienced investors who are
-                comfortable with higher levels of risk and are seeking
-                potentially higher returns.
-              </p>
+              </div>
+              <div className=" overflow-hidden w-[40%]">
+                <p className="investPara text-lg translate-y-[100%] opacity-0">
+                  These funds are suitable for experienced investors who are
+                  comfortable with higher levels of risk and are seeking
+                  potentially higher returns.
+                </p>
+              </div>
             </div>
-            <div className=" w-full h-[70vh] px-[4vw]">
+            <div className=" w-full h-[100vh] px-[4vw] ">
               <div className="relative flex justify-center pt-30">
-                <h1 className="text-7xl font-bold leading-[1.2]">
-                  Here is <span className="text-[#33BC24]">why?</span>
-                </h1>
+                <div className="row">
+                  <div className="col-12 text-center">
+                    <h1 className="animatedText2 text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                      Here is <span className="text-[#33BC24]">why?</span>
+                    </h1>
+                  </div>
+                </div>
                 <svg
                   className=" absolute left-[59%] top-[25%]  text-green-400"
                   width="117"
@@ -474,7 +592,7 @@ const Alternative = () => {
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className=" absolute left-[15%] mt-[25vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
+              <div className=" absolute left-[15%] mt-[6vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">
@@ -507,7 +625,7 @@ const Alternative = () => {
           </div>
         </div>
         <div className="w-full">
-          <Footer/>
+          <Footer />
         </div>
       </div>
     </>
