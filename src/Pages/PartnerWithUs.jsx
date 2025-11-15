@@ -334,7 +334,7 @@ const PartnerWithUs = () => {
     });
   });
 
-// Partner with us Bottom
+  // Partner with us Bottom
   useGSAP(() => {
     gsap.utils.toArray(".partnerBottom").forEach((section) => {
       gsap.to(section, {
@@ -558,8 +558,7 @@ const PartnerWithUs = () => {
         <div className="w-1/2 h-full  flex flex-col items-start justify-center gap-10">
           <h1 className="text-6xl font-medium text-left">
             <BlurText
-              text="For Businesses: Unlock Growth Potential with Mintbyte's Financial
-            Solutions"
+              text="For Businesses: Unlock Growth Potential with Mintbyte's Financial Solutions"
               delay={150}
               animateBy="words"
               direction="top"

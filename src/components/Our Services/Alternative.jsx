@@ -108,6 +108,32 @@ const Alternative = () => {
       opacity: 1,
       duration: 1,
     });
+    tl.to(".alternativeBox", {
+      scrollTrigger: {
+        trigger: ".alternativeBox",
+        start: "top 85%",
+        end: "top 50%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+
+    gsap.utils.toArray(".alternativeBottom").forEach((section) => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
   });
   return (
     <>
@@ -539,7 +565,7 @@ const Alternative = () => {
                   </g>
                 </svg>
               </div>
-              <div className="w-full h-[40vh] px-30 mt-20  flex gap-10">
+              <div className="alternativeBox translate-y-[-20%] opacity-0 w-full h-[40vh] px-30 mt-20  flex gap-10">
                 <div className="w-1/2 h-full rounded-xl flex flex-col items-center justify-center gap-8 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <div className="w-20 h-20 rounded-xl bg-black flex items-center justify-center">
                     <img src="/images/groups/tick.png" alt="" />
@@ -574,7 +600,7 @@ const Alternative = () => {
               <button className="px-5 py-[1.2vh] mt-15 rounded-[50px] bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
                 Get Started
               </button>
-              <div className="w-full h-[30vh] mt-[3vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
+              <div className=" alternativeBottom opacity-0 translate-y-[35%] w-full h-[30vh] mt-[3vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
                 <div>
                   <h1 className="text-5xl font-bold">
                     Elevate your wealth with expert portfolio management.
@@ -592,7 +618,7 @@ const Alternative = () => {
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className=" absolute left-[15%] mt-[6vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
+              <div className=" alternativeBottom opacity-0 translate-y-[-40%]  absolute left-[15%] mt-[6vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">

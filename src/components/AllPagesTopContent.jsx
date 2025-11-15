@@ -25,16 +25,16 @@ const AllPagesTopContent = ({
     tl.to(groupImgRef.current, {
       opacity: 1,
       delay: 1.5,
-      duration: 0.5,
+      duration: 0.3,
     });
     tl.to(".svg", {
       opacity: 1,
-      duration: 0.6,
+      duration: 0.4,
     });
     tl.to(".title1", {
       y: "0%",
       opacity: 1,
-      duration: 0.6,
+      duration: 0.5,
     });
     tl.to(".title2", {
       y: "0%",
@@ -52,17 +52,17 @@ const AllPagesTopContent = ({
     tl.to(".bookBtn", {
       y: "0",
       opacity: 1,
-      duration: 1,
+      duration: 0.3,
     });
     tl.to(".signBtn", {
       y: "0",
       opacity: 1,
-      duration: 0.6,
+      duration: 0.3, 
     });
     tl.to(".videoDiv", {
       scale: 1,
       opacity: 1,
-      duration: 0.8,
+      duration: 0.5,
     });
   });
 
