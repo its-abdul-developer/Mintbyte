@@ -1,7 +1,138 @@
 import React from "react";
 import AllPagesTopContent from "../AllPagesTopContent";
 import Footer from "../Footer/Footer";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const Insurance = () => {
+  // insuranceBoxImg opacity-0 scale-[0.5]
+  // insuranceHeading opacity-0
+  // insuranceBox translate-x-[70%] opacity-0
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".animatedText6", {
+      scrollTrigger: {
+        trigger: ".animatedText6",
+        start: "top 85%",
+        end: "top 35%",
+        // scrub: true,
+      },
+      textShadow:
+        "6px 6px 10px rgba(255, 0, 0, 0.8), -6px -6px 10px rgba(0, 226, 57, 0.8)",
+      opacity: 1,
+      repeat: -1,
+      repeatDelay: 0.2,
+      duration: 0.1,
+      yoyo: true,
+    });
+    tl.to(".insuranceHeadImg", {
+      scrollTrigger: {
+        trigger: ".insuranceHeadImg",
+        start: "top 85%",
+        end: "top 35%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 2,
+    });
+    tl.to(".insurancePara", {
+      scrollTrigger: {
+        trigger: ".insurancePara",
+        start: "top 85%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".insuranceHeading").forEach((heading) => {
+      tl.to(heading, {
+        scrollTrigger: {
+          trigger: heading,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+
+        opacity: 1,
+        duration: 1,
+      });
+    });
+    gsap.utils.toArray(".insuranceBoxImg").forEach((box) => {
+      tl.to(box, {
+        scrollTrigger: {
+          trigger: box,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        scale: 1,
+        opacity: 1,
+      });
+    });
+    gsap.utils.toArray(".insuranceBox").forEach((box) => {
+      tl.to(box, {
+        scrollTrigger: {
+          trigger: box,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".ourHead", {
+      scrollTrigger: {
+        trigger: ".ourHead",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".serviceBox").forEach((box) => {
+      tl.to(box, {
+        scrollTrigger: {
+          trigger: box,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+
+    gsap.utils.toArray(".subscribe").forEach((subscribe) => {
+      tl.to(subscribe, {
+        scrollTrigger: {
+          trigger: subscribe,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -19,12 +150,15 @@ const Insurance = () => {
         <div className="w-full h-70 "></div>
 
         <div className="w-full pt-30">
-          <h1 className="text-6xl font-bold text-center">
-            Insurance: Safeguarding Your Future!
-          </h1>
+          <div class="col-12 text-center">
+            <h1 class="animatedText6 opacity-100 text-6xl font-bold [text-shadow:rgba(96,0,0,0.3)_2.26px_2.26px_3.76px,rgba(0,85,21,0.3)_-2.26px_-2.26px_3.76px]">
+              Insurance: Safeguarding Your Future!
+            </h1>
+          </div>
+
           <div className="w-full  p-30 overflow-hidden  flex justify-between mt-10">
             <div className="w-1/2  pl-25">
-              <div className="w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className="insuranceHeadImg scale-[0.5] opacity-0 w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
                   src="/images/groups/insurance.png"
@@ -32,7 +166,7 @@ const Insurance = () => {
                 />
               </div>
             </div>
-            <div className="w-[45%] h-full  pt-40 text-xl flex flex-col justify-center items-start">
+            <div className="insurancePara translate-y-[-30%] opacity-0 w-[45%] h-full  pt-40 text-xl flex flex-col justify-center items-start">
               <p>
                 Safeguard your loved ones and assets with Mintbyte’s
                 comprehensive range of insurance solutions, tailored to provide
@@ -51,14 +185,16 @@ const Insurance = () => {
         </div>
 
         <div className="w-full min-h-[100vh]  flex flex-col items-center py-15 px-40 ">
-          <h1 className="font-bold text-7xl tracking-tight text-center mb-5">
-            Types of Insurance We Offer
-          </h1>
+          <div class="col-12 text-center">
+            <h1 class="animatedText6 opacity-100 text-6xl font-bold [text-shadow:rgba(96,0,0,0.3)_2.26px_2.26px_3.76px,rgba(0,85,21,0.3)_-2.26px_-2.26px_3.76px]">
+              Types of Insurance We Offer
+            </h1>
+          </div>
           <p className="text-lg">
             Explore our range of insurance options tailored to your needs.
           </p>
           <div className="w-full h-[55vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
-            <div className="w-1/2 h-full p-10 ">
+            <div className="insuranceBoxImg opacity-0 scale-[0.5] w-1/2 h-full p-10 ">
               <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -67,11 +203,11 @@ const Insurance = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start">
-              <h1 className="text-3xl font-bold mt-6">
+            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start overflow-hidden">
+              <h1 className="insuranceHeading opacity-0 text-3xl font-bold mt-6">
                 Life Insurance – Securing Your Loved Ones
               </h1>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -84,7 +220,7 @@ const Insurance = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -97,7 +233,7 @@ const Insurance = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -113,11 +249,11 @@ const Insurance = () => {
             </div>
           </div>
           <div className="w-full h-[55vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
-            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start">
-              <h1 className="text-3xl font-bold mt-6">
+            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start overflow-hidden">
+              <h1 className="insuranceHeading opacity-0 text-3xl font-bold mt-6">
                 Health Insurance – Your Safety Net for Medical Emergencies
               </h1>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -127,7 +263,7 @@ const Insurance = () => {
                   <p>Individual and Family Health Plans</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -137,7 +273,7 @@ const Insurance = () => {
                   <p>Critical Illness Insurance</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -148,7 +284,7 @@ const Insurance = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 h-full p-10 ">
+            <div className="insuranceBoxImg opacity-0 scale-[0.5] w-1/2 h-full p-10 ">
               <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -159,7 +295,7 @@ const Insurance = () => {
             </div>
           </div>
           <div className="w-full h-[55vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
-            <div className="w-1/2 h-full p-10 ">
+            <div className="insuranceBoxImg opacity-0 scale-[0.5] w-1/2 h-full p-10 ">
               <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -168,11 +304,11 @@ const Insurance = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start">
-              <h1 className="text-3xl font-bold mt-6">
+            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start overflow-hidden">
+              <h1 className="insuranceHeading opacity-0 text-3xl font-bold mt-6">
                 Protect your ride with motor insurance!
               </h1>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -182,7 +318,7 @@ const Insurance = () => {
                   <p>Comprehensive Coverage</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -192,7 +328,7 @@ const Insurance = () => {
                   <p>Third-Party Liability Insurance.</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -205,11 +341,11 @@ const Insurance = () => {
             </div>
           </div>
           <div className="w-full h-[55vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
-            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start">
-              <h1 className="text-3xl font-bold mt-6">
+            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start overflow-hidden">
+              <h1 className="insuranceHeading opacity-0 text-3xl font-bold mt-6">
                 Secure your home, secure your peace of mind!
               </h1>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -222,7 +358,7 @@ const Insurance = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -232,7 +368,7 @@ const Insurance = () => {
                   <p>Building Protection</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -243,7 +379,7 @@ const Insurance = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 h-full p-10 ">
+            <div className="insuranceBoxImg opacity-0 scale-[0.5] w-1/2 h-full p-10 ">
               <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -254,7 +390,7 @@ const Insurance = () => {
             </div>
           </div>
           <div className="w-full h-[55vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
-            <div className="w-1/2 h-full p-10 ">
+            <div className="insuranceBoxImg opacity-0 scale-[0.5] w-1/2 h-full p-10 ">
               <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -263,11 +399,11 @@ const Insurance = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start">
-              <h1 className="text-3xl font-bold mt-6">
+            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start overflow-hidden">
+              <h1 className="insuranceHeading opacity-0 text-3xl font-bold mt-6">
                 Travel with confidence—protection wherever you go!
               </h1>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -280,7 +416,7 @@ const Insurance = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -290,7 +426,7 @@ const Insurance = () => {
                   <p>Domestic and International Plans</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -303,11 +439,11 @@ const Insurance = () => {
             </div>
           </div>
           <div className="w-full h-[55vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
-            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start">
-              <h1 className="text-3xl font-bold mt-6">
+            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start overflow-hidden">
+              <h1 className="insuranceHeading opacity-0 text-3xl font-bold mt-6">
                 Protect your business, safeguard your future!
               </h1>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -320,7 +456,7 @@ const Insurance = () => {
                   </p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -330,7 +466,7 @@ const Insurance = () => {
                   <p>Employee Benefit Packages</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[-100%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -341,7 +477,7 @@ const Insurance = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2 h-full p-10 ">
+            <div className="insuranceBoxImg opacity-0 scale-[0.5] w-1/2 h-full p-10 ">
               <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -352,7 +488,7 @@ const Insurance = () => {
             </div>
           </div>
           <div className="w-full h-[55vh]  mt-10 rounded-2xl flex gap-10 border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
-            <div className="w-1/2 h-full p-5 ">
+            <div className="insuranceBoxImg opacity-0 scale-[0.5] w-1/2 h-full p-5 ">
               <div className="w-full h-full rounded-2xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <img
                   className="w-full h-full object-cover"
@@ -361,12 +497,12 @@ const Insurance = () => {
                 />
               </div>
             </div>
-            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start">
-              <h1 className="text-3xl font-bold mt-6">
+            <div className="w-1/2 h-full p-15 flex flex-col gap-6 items-start overflow-hidden">
+              <h1 className="insuranceHeading opacity-0 text-3xl font-bold mt-6">
                 Unique coverage for your unique needs!
               </h1>
-              <p>Address unique risks with niche policies such as:</p>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -376,7 +512,7 @@ const Insurance = () => {
                   <p>Marine Insurance for logistics and trade</p>
                 </div>
               </div>
-              <div className="w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
+              <div className="insuranceBox translate-x-[70%] opacity-0 w-full flex p-4 items-center gap-10 rounded-xl border border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)]">
                 <img
                   className="border h-12 border-white/30 shadow-[0_4px_20px_rgba(255,255,255,0.4)] rounded-full bg-white"
                   src="/images/groups/loan8.png"
@@ -394,10 +530,13 @@ const Insurance = () => {
           <div className="w-full min-h-[180vh] py-20 transition-all ease-linear  border border-white/30  shadow-[0_8px_15px_-5px_rgba(255,255,255,0.25)] rounded-[50%]">
             <div className=" w-full h-[70vh] px-[4vw]">
               <div className="relative pt-30 text-center">
-                <h1 className="text-7xl font-bold leading-[1.2]">
-                  Our Insurance <span className="text-[#33BC24]">Services</span>
-                </h1>
-                <p className="text-xl mt-4">
+                <div className="overflow-hidden">
+                  <h1 className="ourHead text-7xl translate-y-[100%] font-bold leading-[1.2]">
+                    Our Insurance{" "}
+                    <span className="text-[#33BC24]">Services</span>
+                  </h1>
+                </div>
+                <p className="ourHead  opacity-0 text-xl mt-4">
                   We provide end-to-end assistance, ensuring you find the right
                   coverage for every stage of life:
                 </p>
@@ -418,11 +557,11 @@ const Insurance = () => {
                 </svg>
               </div>
               <div className="w-full h-[40vh] px-30 mt-20  flex gap-10">
-                <div className="w-1/2 h-full rounded-xl flex flex-col items-center justify-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className=" serviceBox translate-y-[-20%] opacity-0 w-1/2 h-full rounded-xl flex flex-col items-center justify-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <div className="w-20 h-20 rounded-xl bg-black flex items-center justify-center">
                     <img src="/images/groups/tick.png" alt="" />
                   </div>
-                  <h2 className="text-4xl font-medium my-5">
+                  <h2 className="text-4xl text-center font-medium my-5">
                     Personalized Consultations
                   </h2>
                   <p className="text-lg mx-20 text-center">
@@ -430,7 +569,7 @@ const Insurance = () => {
                     insurance solutions
                   </p>
                 </div>
-                <div className="w-1/2 h-full rounded-xl flex flex-col items-center justify-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className="serviceBox  translate-y-[25%] opacity-0 w-1/2 h-full rounded-xl flex flex-col items-center justify-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <div className="w-20 h-20 rounded-xl bg-black flex items-center justify-center">
                     <img src="/images/groups/tick.png" alt="" />
                   </div>
@@ -442,7 +581,7 @@ const Insurance = () => {
                     and value
                   </p>
                 </div>
-                <div className="w-1/2 h-full rounded-xl flex flex-col items-center justify-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+                <div className=" serviceBox translate-y-[-20%] opacity-0 w-1/2 h-full rounded-xl flex flex-col items-center justify-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                   <div className="w-20 h-20 rounded-xl bg-black flex items-center justify-center">
                     <img src="/images/groups/tick.png" alt="" />
                   </div>
@@ -459,7 +598,7 @@ const Insurance = () => {
                   Get Started
                 </button>
               </div>
-              <div className="w-full h-[30vh] mt-[6vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
+              <div className="subscribe  translate-y-[40%] opacity-0 w-full h-[30vh] mt-[6vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
                 <div>
                   <h1 className="text-7xl font-bold">
                     Protect what matters most.
@@ -478,7 +617,7 @@ const Insurance = () => {
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className=" absolute left-[15%] mt-[33vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
+              <div className="subscribe  translate-y-[-40%] opacity-0  absolute left-[15%] mt-[33vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">

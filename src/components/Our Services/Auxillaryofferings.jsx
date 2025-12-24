@@ -4,8 +4,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "../Footer/Footer";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 const Auxillaryofferings = () => {
-      const data = [
+  const data = [
     {
       img1: "/images/groups/customer.png",
       img2: "/images/groups/customer2.png",
@@ -91,6 +94,130 @@ const Auxillaryofferings = () => {
     slidesToShow: 2,
     slidesToScroll: 1,
   };
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+
+    tl.to(".estateImg", {
+      scrollTrigger: {
+        trigger: ".estateImg",
+        start: "top 85%",
+        end: "top 35%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+
+      duration: 2,
+    });
+
+    tl.to(".offeringHeading", {
+      scrollTrigger: {
+        trigger: ".offeringHeading",
+        start: "top 85%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      scale:1,
+      opacity: 1,
+
+      duration: 2,
+    });
+
+    gsap.utils.toArray(".subscribe").forEach((subscribe) => {
+      tl.to(subscribe, {
+        scrollTrigger: {
+          trigger: subscribe,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 2,
+      });
+    });
+
+    tl.to(".customerHeading", {
+      scrollTrigger: {
+        trigger: ".customerHeading",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      y: 0,
+      // delay: 1,
+      duration: 1,
+    });
+    tl.to(".customerPara", {
+      scrollTrigger: {
+        trigger: ".customerPara",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+      delay: 1,
+      opacity: 1,
+      duration: 1,
+    });
+
+    tl.to(".mobileReview", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileReview",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSelect", {
+      y: "0%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSelect",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileSlider", {
+      y: "50%",
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileSlider",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: true,
+      },
+    });
+    tl.to(".mobileBtn", {
+      y: 0,
+      opacity: 1,
+      delay: 1.5,
+      duration: 2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".mobileBtn",
+        start: "top 80%",
+        end: "top 35%",
+        scrub: 1.5,
+      },
+    });
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -109,7 +236,7 @@ const Auxillaryofferings = () => {
 
         <div className="w-full  p-30 overflow-hidden  flex justify-between mt-10">
           <div className="w-1/2 h-full  pl-25">
-            <div className="w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+            <div className="offeringHeading scale-[0.5] opacity-0 w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
                 src="/images/groups/offer.png"
@@ -119,12 +246,14 @@ const Auxillaryofferings = () => {
           </div>
           <div className="w-[45%] h-full  p-10 text-xl">
             <div className="w-full relative flex items-center justify-center">
-              <h1 className="text-6xl font-bold">
-                <span className="text-[#33BC24]">Enhanced Auxiliary </span>{" "}
-                Offerings
-              </h1>
+              <div className="overflow-hidden">
+                <h1 className="offeringHeading text-6xl translate-y-[100%] pb-3 font-bold">
+                  <span className="text-[#33BC24]">Enhanced Auxiliary </span>{" "}
+                  Offerings
+                </h1>
+              </div>
               <svg
-                className=" absolute left-[75%] top-[-70%]  text-green-400"
+                className=" absolute left-[82%] top-[-50%]  text-green-400"
                 width="117"
                 height="117"
                 viewBox="0 0 117 117"
@@ -139,32 +268,33 @@ const Auxillaryofferings = () => {
                 </g>
               </svg>
             </div>
-            <p className="my-10">
-              <b>AI-Driven Insights</b> Utilize Artificial Intelligence for Market Trends and Investment Decisions
+            <p className="offeringHeading opacity-0 my-10">
+              <b>AI-Driven Insights</b> Utilize Artificial Intelligence for
+              Market Trends and Investment Decisions
             </p>
-            <p className="">
-         <b>AI-Powered Portfolio Optimization</b> Highlight the use of AI for ongoing portfolio optimization and rebalancing to maximize returns and manage risk.
+            <p className="offeringHeading opacity-0 ">
+              <b>AI-Powered Portfolio Optimization</b> Highlight the use of AI
+              for ongoing portfolio optimization and rebalancing to maximize
+              returns and manage risk.
             </p>
 
-            <button className="px-8 py-[1.3vh] mt-10 rounded-[50px] bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
+            <button className="offeringHeading opacity-0 px-8 py-[1.3vh] mt-10 rounded-[50px] bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
               Join Us
             </button>
           </div>
         </div>
-          <div className="w-full min-h-[100vh] relative">
+        <div className="w-full min-h-[100vh] relative">
           <div className="w-full min-h-[100vh] transition-all ease-linear border-b border-white/30  shadow-[0_8px_10px_-5px_rgba(255,255,255,0.25)] rounded-b-[50%] overflow-hidden pt-20 px-20">
             <div className=" pt-10 ">
-             <div className="  h-80 bg-[#1D1D1D] bottom-12 z-10 rounded-lg flex items-center justify-between pl-15 pr-26  border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+              <div className=" subscribe  translate-y-[-40%] opacity-0 h-80 bg-[#1D1D1D] bottom-12 z-10 rounded-lg flex items-center justify-between pl-15 pr-26  border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
                 <div>
                   <h1 className="text-5xl font-medium">
-                  Experience our AI-driven  
+                    Experience our AI-driven
                   </h1>
                   <h1 className="text-5xl font-medium">
-                 Insights, Download our Mobile
+                    Insights, Download our Mobile
                   </h1>
-                  <h1 className="text-5xl font-medium">
-        App Today
-                  </h1>
+                  <h1 className="text-5xl font-medium">App Today</h1>
                 </div>
                 <div className="flex h-20 gap-4">
                   <img
@@ -179,86 +309,93 @@ const Auxillaryofferings = () => {
                   />
                 </div>
               </div>
-              <div className="text-center pt-50">
-                <h1 className="text-5xl font-bold">
-                  <span className="text-[#33BC24]">Trusted</span> by over
-                </h1>
-                <h1 className="text-5xl font-bold text-yellow-400">
-                  25,000+ customers
-                </h1>
-                <p className="text-sm mt-5">
+              <div className="text-center pt-20">
+                <div className="  overflow-hidden">
+                  <h1 className="customerHeading text-5xl translate-y-[100%] font-bold">
+                    <span className="text-[#33BC24]">Trusted</span> by over
+                  </h1>
+                </div>
+                <div className=" overflow-hidden">
+                  <h1 className="customerHeading text-5xl translate-y-[-100%]  font-bold text-yellow-400">
+                    25,000+ customers
+                  </h1>
+                </div>
+                <p className="customerPara text-sm mt-5 opacity-0">
                   Don’t take our word for it. Here’s what other people are
                   saying about us…
                 </p>
               </div>
-              <div className="w-full rounded-t-lg  px-3 text-sm flex justify-between pt-6">
-                <div className="w-70 h-18 px-2 py-2 bg-white rounded">
-                  <img src="/images/groups/trust.png" alt="" />
-                  <p className="text-sm mt-2 text-black tracking-tight">
-                    4.8 OUT OF 5 BASED ON 700+ REVIEWS
-                  </p>
-                </div>
-                <div className="">
-                  <select
-                    className="px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer"
-                    id="city"
-                    name="city"
-                  >
-                    <option value="Sort By">Sort By</option>
-                    <option
-                      onClick={() => {
-                        console.log("hello");
-                      }}
-                      value="All Reviews"
+              <div className="w-full px-2">
+                <div className="w-full rounded-t-lg overflow-hidden  px-3 text-sm flex justify-between pt-6">
+                  <div className="mobileReview translate-y-[-150%] opacity-0 w-70 h-18 px-2 py-2 bg-white rounded">
+                    <img src="/images/groups/trust.png" alt="" />
+                    <p className="text-sm mt-2 text-black tracking-tight">
+                      4.8 OUT OF 5 BASED ON 700+ REVIEWS
+                    </p>
+                  </div>
+                  <div className="">
+                    <select
+                      className="mobileSelect px-5 py-4 rounded  bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] translate-y-[150%] opacity-0 transition-all duration-300 cursor-pointer"
+                      id="city"
+                      name="city"
                     >
-                      All Reviews
-                    </option>
-                    <option value="Trustindex">Trustindex</option>
-                    <option value="Apple Appstore">Apple Appstore</option>
-                    <option value="Google Playstore">Google Playstore</option>
-                  </select>
-                </div>
-              </div>
-              <div className="w-full mx-auto pb-10">
-                <div className="mt-20 ">
-                  <Slider {...settings}>
-                    {data.map((d, i) => (
-                      <div
-                        key={i}
-                        className="hover:border hover:border-white/30 hover:shadow-[0_4px_20px_rgba(255,255,255,0.4)] transition-all ease-linear  h-[25vh] bg-white/20 p-4 rounded-lg"
+                      <option value="Sort By">Sort By</option>
+                      <option
+                        onClick={() => {
+                          console.log("hello");
+                        }}
+                        value="All Reviews"
                       >
-                        <div className="rounded-lg flex items-center justify-between h-12">
-                          <img
-                            src={d.img1}
-                            alt={d.name}
-                            className=" h-10 object-cover rounded-full"
-                          />
-                          <img
-                            src={d.img2}
-                            alt={d.name}
-                            className="h-4 object-cover rounded-full"
-                          />
-                        </div>
-                        <div className="flex flex-col justify-center items-center text-center p-4">
-                          <p className="font-semibold text-xl">{d.title}</p>
-                          <p className=" w-[66%]">
-                            {d.para} <span>{d.span}</span>
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </Slider>
+                        All Reviews
+                      </option>
+                      <option value="Trustindex">Trustindex</option>
+                      <option value="Apple Appstore">Apple Appstore</option>
+                      <option value="Google Playstore">Google Playstore</option>
+                    </select>
+                  </div>
                 </div>
-                <div className="text-center mt-15">
-                  <button className="px-6 py-4 rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
-                    View all Testimonials <i class="ri-arrow-right-s-line"></i>{" "}
-                  </button>
+                <div className="w-full mx-auto pb-10">
+                  <div className="mobileSlider translate-y-[-50%] opacity-0 mt-20 ">
+                    <Slider {...settings}>
+                      {data.map((d, i) => (
+                        <div
+                          key={i}
+                          className="hover:border hover:border-white/30 hover:shadow-[0_4px_20px_rgba(255,255,255,0.4)] transition-all ease-linear  h-[25vh] bg-white/20 p-4 rounded-lg"
+                        >
+                          <div className="rounded-lg flex items-center justify-between h-12">
+                            <img
+                              src={d.img1}
+                              alt={d.name}
+                              className=" h-10 object-cover rounded-full"
+                            />
+                            <img
+                              src={d.img2}
+                              alt={d.name}
+                              className="h-4 object-cover rounded-full"
+                            />
+                          </div>
+                          <div className="flex flex-col justify-center items-center text-center p-4">
+                            <p className="font-semibold text-xl">{d.title}</p>
+                            <p className=" w-[66%]">
+                              {d.para} <span>{d.span}</span>
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </Slider>
+                  </div>
+                  <div className="text-center mt-15 overflow-hidden">
+                    <button className="mobileBtn px-6 py-4 translate-y-[-100%] rounded-[50px] text-sm bg-[#33BC24] text-white hover:bg-[#00CC66] hover:shadow-[0_0_10px_#00FF88] transition-all duration-300 cursor-pointer">
+                      View all Testimonials{" "}
+                      <i class="ri-arrow-right-s-line"></i>{" "}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className="absolute w-[70%] h-[20vh] border bottom-30 left-[15%] rounded-lg p-5 flex items-center">
+              <div className="subscribe  translate-y-[-40%] opacity-0 absolute w-[70%] h-[20vh] border bottom-30 left-[15%] rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">
@@ -292,7 +429,7 @@ const Auxillaryofferings = () => {
         </div>
 
         <div className="w-full">
-            <Footer/>
+          <Footer />
         </div>
       </div>
     </>

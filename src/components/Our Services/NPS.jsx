@@ -1,8 +1,160 @@
 import React from "react";
 import AllPagesTopContent from "../AllPagesTopContent";
 import Footer from "../Footer/Footer";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const NPS = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(".animatedText", {
+      scrollTrigger: {
+        trigger: ".animatedText",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+    gsap.from(".animatedText2", {
+      scrollTrigger: {
+        trigger: ".animatedText2",
+        start: "top 85%", // Animation starts when the element enters the viewport
+        end: "top 50%", // End point ensures it doesn't trigger prematurely
+        toggleActions: "play none none reset", // Plays animation once and doesn't reset
+      },
+
+      y: -150, // Bounces in from above
+      opacity: 0, // Fades in as it bounces
+      ease: "bounce.out", // Bounce easing for a dynamic effect
+      duration: 1.5, // Total animation duration
+    });
+
+    const tl = gsap.timeline();
+
+    tl.to(".npsHeading", {
+      scrollTrigger: {
+        trigger: ".npsHeading",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".npsImgDiv", {
+      scrollTrigger: {
+        trigger: ".npsImgDiv",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".npsPara", {
+      scrollTrigger: {
+        trigger: ".npsPara",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      y: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    tl.to(".offerPara", {
+      scrollTrigger: {
+        trigger: ".offerPara",
+        start: "top 80%",
+        end: "top 40%",
+        scrub: true,
+      },
+      opacity: 1,
+      duration: 1,
+    });
+
+    tl.fromTo(
+      ".offerImgDiv",
+      { y: 200, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: ".offerImgDiv",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: {
+          each: 1,
+        },
+      }
+    );
+    tl.fromTo(
+      ".npsTrack",
+      {x: -200, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: ".npsTrack",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 340,
+        opacity: 1,
+        duration: 1,
+        stagger: {
+          each: 1,
+        },
+      }
+    );
+    tl.fromTo(
+      ".npsTrack2",
+      {x: 200, opacity: 0 },
+      {
+        scrollTrigger: {
+          trigger: ".npsTrack2",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: true,
+        },
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: {
+          each: 1,
+        },
+      }
+    );
+
+
+    gsap.utils.toArray(".alternativeBottom").forEach((section) => {
+      gsap.to(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          end: "top 40%",
+          scrub: true,
+        },
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      });
+    });
+
+  });
+
   return (
     <>
       <AllPagesTopContent
@@ -20,12 +172,14 @@ const NPS = () => {
       <div className="w-full">
         <div className="w-full h-96 "></div>
         <div className="w-full h-20 mt-20 relative flex items-center justify-center">
-          <h1 className="text-6xl font-bold w-[50%] text-center">
-            Are you <span className="text-[#33BC24]">contemplating</span>{" "}
-            Securing your retirement?
-          </h1>
+          <div className="overflow-hidden w-[50%] ">
+            <h1 className="npsHeading text-6xl font-bold translate-y-[100%] pb-3 text-center">
+              Are you <span className="text-[#33BC24]">contemplating</span>{" "}
+              Securing your retirement?
+            </h1>
+          </div>
           <svg
-            className=" absolute left-[72%] top-[-100%]  text-green-400"
+            className=" absolute left-[66%] top-[-100%]  text-green-400"
             width="117"
             height="117"
             viewBox="0 0 117 117"
@@ -42,7 +196,7 @@ const NPS = () => {
         </div>
         <div className="w-full  p-30 overflow-hidden  flex justify-between mt-10">
           <div className="w-1/2 h-full  pl-25">
-            <div className="w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+            <div className="npsImgDiv scale-[0.7] opacity-0 w-[90%] h-full rounded-3xl overflow-hidden border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
               <img
                 className="w-full h-full object-cover"
                 src="/images/groups/nps.png"
@@ -50,7 +204,7 @@ const NPS = () => {
               />
             </div>
           </div>
-          <div className="w-[45%] h-full  p-10 text-xl">
+          <div className="npsPara translate-y-[40%] opacity-0 w-[45%] h-full  p-10 text-xl">
             <p className="">
               <b>Retirement</b> Planning is the cornerstone of financial
               stability, and the National Pension Scheme (NPS), a
@@ -69,15 +223,18 @@ const NPS = () => {
           </div>
         </div>
         <div className="px-40  text-center">
-          <h1 className="text-6xl font-bold">
-            What we <span className="text-[#33BC24]">offer</span>{" "}
-          </h1>
-          <p className="text-lg mt-2">
+          <div className="col-12 text-center">
+            <h1 className="animatedText text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+              What we <span className="text-[#33BC24]">offer</span>
+            </h1>
+          </div>
+
+          <p className="offerPara opacity-0 text-lg mt-2">
             Simplifying your retirement planning with NPS - We handle the
             complexities, you enjoy the benefits.
           </p>
           <div className="flex gap-10 w-full h-full py-20 pr-[20vw]">
-            <div className="w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
+            <div className="offerImgDiv w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
               <div className="w-full h-[80%]">
                 <img
                   className="w-full h-full object-cover"
@@ -93,7 +250,7 @@ const NPS = () => {
                 opening process for a stress-free start.
               </p>
             </div>
-            <div className="w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
+            <div className="offerImgDiv w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
               <div className="w-full h-[80%]">
                 <img
                   className="w-full h-full object-cover"
@@ -109,7 +266,7 @@ const NPS = () => {
                 your financial aspirations and risk tolerance.
               </p>
             </div>
-            <div className="w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
+            <div className="offerImgDiv w-1/2 h-full rounded-2xl overflow-hidden transition-all ease-linear hover:shadow-[0_4px_25px_rgba(255,255,255,0.4)] border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] pb-10">
               <div className="w-full h-[80%]">
                 <img
                   className="w-full h-full object-cover"
@@ -131,15 +288,18 @@ const NPS = () => {
             Start My NPS Journey
           </button>
         </div>
-        <div className="w-full min-h-[100vh] pt-20">
-          <div className="w-full min-h-[180vh] py-20 transition-all ease-linear  border border-white/30  shadow-[0_8px_15px_-5px_rgba(255,255,255,0.25)] rounded-[50%]">
+        <div className="w-full min-h-[100vh] pt-20 ">
+          <div className="w-full min-h-[180vh] py-20 overflow-hidden transition-all ease-linear  border border-white/30  shadow-[0_8px_15px_-5px_rgba(255,255,255,0.25)] rounded-[50%]">
             <div className=" w-full h-[70vh] px-[4vw]">
               <div className="relative flex justify-center pt-30">
-                <h1 className="text-7xl font-bold leading-[1.2]">
-                  Why Choose <span className="text-[#33BC24]">NPS?</span>
-                </h1>
+                <div className="col-12 text-center">
+                  <h1 className="animatedText2 text-6xl font-bold translate-none rotate-none scale-none opacity-100 translate-0">
+                    Why Choose <span className="text-[#33BC24]">NPS?</span>
+                  </h1>
+                </div>
+
                 <svg
-                  className=" absolute left-[65%] top-[25%]  text-green-400"
+                  className=" absolute left-[63%] top-[25%]  text-green-400"
                   width="117"
                   height="117"
                   viewBox="0 0 117 117"
@@ -154,8 +314,8 @@ const NPS = () => {
                   </g>
                 </svg>
               </div>
-              <div className="w-full  h-full p-[6vw] pl-[10vw] text-2xl font-medium">
-                <div className="flex items-center mb-4 gap-3  h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="w-full  h-full p-[6vw] pl-[10vw] text-2xl font-medium ">
+                <div className="npsTrack opacity-0  flex items-center mb-4 gap-3  h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -167,7 +327,7 @@ const NPS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="npsTrack2 flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -179,7 +339,7 @@ const NPS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="npsTrack opacity-0  flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -191,7 +351,7 @@ const NPS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="npsTrack2 flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -203,7 +363,7 @@ const NPS = () => {
                     alt=""
                   />
                 </div>
-                <div className="flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+                <div className="npsTrack opacity-0  flex items-center mb-4 gap-3 h-24 w-1/2 px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                   <img
                     className="h-full"
                     src="/images/groups/mobilei1.png"
@@ -216,13 +376,13 @@ const NPS = () => {
                   />
                 </div>
               </div>
-              <div className="w-full h-[30vh] mt-[3vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
+              <div className="alternativeBottom opacity-0 translate-y-[35%] w-full h-[30vh] mt-[3vw] relative bg-[#777777ed] rounded-xl px-20 flex items-center justify-between">
                 <div>
                   <h1 className="text-5xl font-bold">
-                   Secure your retirement with NPS
+                    Secure your retirement with NPS
                   </h1>
                   <p className="text-lg mt-5">
-                   Contact us to get started towards a brighter tomorrow
+                    Contact us to get started towards a brighter tomorrow
                   </p>
                 </div>
                 <div className="">
@@ -234,7 +394,7 @@ const NPS = () => {
             </div>
 
             <div className="w-full h-[45vh]">
-              <div className=" absolute left-[15%] mt-[32vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
+              <div className=" alternativeBottom opacity-0 translate-y-[-40%] absolute left-[15%] mt-[32vw] w-[70%] h-[20vh] border rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}
                   <h1 className="text-3xl font-bold">
@@ -267,7 +427,7 @@ const NPS = () => {
           </div>
         </div>
         <div className="w-full">
-            <Footer/>
+          <Footer />
         </div>
       </div>
     </>

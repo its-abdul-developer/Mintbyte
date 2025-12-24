@@ -757,7 +757,7 @@ const About = () => {
       <div className="w-full">
         <div
           id="who-we-are"
-          className=" w-full h-[65vh] relative flex items-end justify-center pb-15"
+          className=" w-full h-[90vh] relative flex items-end justify-center pb-15"
         >
           <div className="row w-100">
             <div className="col-12 text-center">
@@ -768,7 +768,7 @@ const About = () => {
           </div>
 
           <svg
-            className=" absolute left-[58%] top-[67%]  text-green-400"
+            className=" absolute left-[60%] top-[70%]  text-green-400"
             width="117"
             height="117"
             viewBox="0 0 117 117"
@@ -945,7 +945,7 @@ const About = () => {
             src="/images/groups/fonder2.png"
             alt=""
           />
-          <div className="aboutFounder opacity-0 absolute top-[50%] left-[36%] w-[45%] h-[40vh] p-12 bg-[#FFD921] text-black">
+          <div className="aboutFounder opacity-0 absolute top-[50%] left-[36%] w-[45%] p-12 bg-[#FFD921] text-black">
             <h1 className="text-3xl font-semibold">Founder</h1>
             <p className="text-xl mt-6 ">
               Amit Tiwari is a <b>dynamic</b> and <b>innovative leader</b> in
@@ -1144,7 +1144,7 @@ const About = () => {
           </div>
           <div className="w-full h-[50vh]  px-30 flex">
             <div className="w-1/2 h-full pt-6">
-              <div className="careerTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[90%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1156,7 +1156,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="careerTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[90%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1168,7 +1168,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="careerTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[90%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1180,7 +1180,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="careerTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="careerTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[90%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1201,7 +1201,7 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="w-full  text-center pt-20">
+          <div className="w-full  text-center pt-42">
             <div class="col-12 text-center">
               <h1 class="animatedTextt2 text-6xl font-bold translate-none rotate-none scale-none opacity transform scale-[0.774] translate-x-0 translate-y-0">
                 Job <span className="text-[#33BC24]">Opportunities</span>
@@ -1307,7 +1307,7 @@ const About = () => {
             </div>
 
             <div className="w-1/2 h-full pt-20">
-              <div className="jobTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1319,7 +1319,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="jobTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1331,7 +1331,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="jobTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1343,7 +1343,7 @@ const About = () => {
                   alt=""
                 />
               </div>
-              <div className="jobTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-[80%] px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
+              <div className="jobTrackImg translate-x-[-30%] opacity-0 flex items-center mb-4 mt-4 gap-3 h-22 w-full px-2 bg-white rounded-md border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)] hover:shadow-[0_4px_30px_rgba(255,255,255,0.4)]">
                 <img
                   className="h-full"
                   src="/images/groups/mobilei1.png"
@@ -1444,7 +1444,7 @@ const About = () => {
                         </div>
                         <div className="flex flex-col justify-center items-center text-center p-4">
                           <p className="font-semibold text-xl">{d.title}</p>
-                          <p className=" w-[66%]">
+                          <p className="">
                             {d.para} <span>{d.span}</span>
                           </p>
                         </div>
@@ -1460,7 +1460,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="customerSubscribe translate-y-[-35%] w-full h-[45vh]">
+            <div className="customerSubscribe translate-y-[-35%] opacity-0 w-full h-[45vh]">
               <div className="absolute w-[70%] h-[20vh] border bottom-30 left-[15%] rounded-lg p-5 flex items-center">
                 <div className="w-1/2">
                   {" "}

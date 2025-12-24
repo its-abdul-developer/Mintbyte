@@ -492,12 +492,12 @@ const AllPagesTopContent = ({
               </g>
             </svg>
             <div className="w-fit  overflow-hidden">
-              <h1 className="title1 font-bold opacity-0 translate-y-[100%] text-7xl tracking-tight">
+              <h1 className="title1   font-bold opacity-0 translate-y-[100%] text-7xl tracking-tight">
                 <span className="text-[#33BC24]">{title1}</span> {title2}
               </h1>
             </div>
             <div className="w-fit  overflow-hidden">
-              <h1 className="title2 font-bold opacity-0 translate-y-[100%] text-7xl tracking-tight">
+              <h1 className="title2   font-bold opacity-0 translate-y-[100%] text-7xl tracking-tight">
                 {title3} <span className="text-[#33BC24]">{title4}</span>
               </h1>
             </div>
