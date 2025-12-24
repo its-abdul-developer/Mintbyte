@@ -71,10 +71,10 @@ const OurService = () => {
         flex="hidden"
         height="h-[115vh]"
         // flex2="hidden"
-        description="Welcome to Mintbyte, your partner in navigating the complexities of the financial world. We offer a comprehensive suite of services designed to help you achieve your financial goals, whether you’re planning for retirement, growing your wealth, or seeking financial security."
+        description="Welcome to Mintbyte, your partner in navigating the complexities of the financial world. We offer a comprehensive suite of services designed to help you achieve your financial goals, whether you’re planning for retirement, growing your wealth."
         homeVideo="/videos/video9.mp4"
       />
-      <div className="w-full h-[50vh] "></div>
+      <div className="w-full h-[65vh] "></div>
       <div className="w-full min-h-[100vh] overflow-hidden flex flex-col items-center py-15 px-40 ">
         <div className="row">
           <div className="col-12 text-center">
@@ -317,7 +317,7 @@ const OurService = () => {
               </button>
             </div>
           </div>
-          <div className="ourServicesBottom opacity-0 translate-y-[-40%] w-[58%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[22vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
+          <div className="ourServicesBottom opacity-0 translate-y-[-40%] w-[65%] h-[24vh] rounded-2xl mt-[-2.5vw]  ml-[18vw]  p-8 flex items-center border border-white/30 shadow-[0_4px_15px_rgba(255,255,255,0.4)]">
             <div className="w-1/2">
               {" "}
               <h1 className="text-3xl font-bold">
